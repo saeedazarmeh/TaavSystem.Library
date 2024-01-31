@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "Library.QueryLayer/1.0.0": {
+        "dependencies": {
+          "Library.DomainLayer": "1.0.0"
+        },
+        "runtime": {
+          "Library.QueryLayer.dll": {}
+        }
+      },
+      "Library.DomainLayer/1.0.0": {
+        "runtime": {
+          "Library.DomainLayer.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Library.QueryLayer/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Library.DomainLayer/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

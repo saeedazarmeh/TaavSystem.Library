@@ -1,0 +1,12 @@
+F:\Job-programing\Taav Sys Course\TAAV_Tests\WebAPI\Library\TaavSystem.Library\Library.DomainLayer\bin\Debug\net6.0\Library.DomainLayer.deps.json
+F:\Job-programing\Taav Sys Course\TAAV_Tests\WebAPI\Library\TaavSystem.Library\Library.DomainLayer\bin\Debug\net6.0\Library.DomainLayer.dll
+F:\Job-programing\Taav Sys Course\TAAV_Tests\WebAPI\Library\TaavSystem.Library\Library.DomainLayer\bin\Debug\net6.0\Library.DomainLayer.pdb
+F:\Job-programing\Taav Sys Course\TAAV_Tests\WebAPI\Library\TaavSystem.Library\Library.DomainLayer\obj\Debug\net6.0\Library.DomainLayer.csproj.AssemblyReference.cache
+F:\Job-programing\Taav Sys Course\TAAV_Tests\WebAPI\Library\TaavSystem.Library\Library.DomainLayer\obj\Debug\net6.0\Library.DomainLayer.GeneratedMSBuildEditorConfig.editorconfig
+F:\Job-programing\Taav Sys Course\TAAV_Tests\WebAPI\Library\TaavSystem.Library\Library.DomainLayer\obj\Debug\net6.0\Library.DomainLayer.AssemblyInfoInputs.cache
+F:\Job-programing\Taav Sys Course\TAAV_Tests\WebAPI\Library\TaavSystem.Library\Library.DomainLayer\obj\Debug\net6.0\Library.DomainLayer.AssemblyInfo.cs
+F:\Job-programing\Taav Sys Course\TAAV_Tests\WebAPI\Library\TaavSystem.Library\Library.DomainLayer\obj\Debug\net6.0\Library.DomainLayer.csproj.CoreCompileInputs.cache
+F:\Job-programing\Taav Sys Course\TAAV_Tests\WebAPI\Library\TaavSystem.Library\Library.DomainLayer\obj\Debug\net6.0\Library.DomainLayer.dll
+F:\Job-programing\Taav Sys Course\TAAV_Tests\WebAPI\Library\TaavSystem.Library\Library.DomainLayer\obj\Debug\net6.0\refint\Library.DomainLayer.dll
+F:\Job-programing\Taav Sys Course\TAAV_Tests\WebAPI\Library\TaavSystem.Library\Library.DomainLayer\obj\Debug\net6.0\Library.DomainLayer.pdb
+F:\Job-programing\Taav Sys Course\TAAV_Tests\WebAPI\Library\TaavSystem.Library\Library.DomainLayer\obj\Debug\net6.0\ref\Library.DomainLayer.dll

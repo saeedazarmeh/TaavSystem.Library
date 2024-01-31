@@ -1,0 +1,17 @@
+F:\Job-programing\Taav Sys Course\TAAV_Tests\WebAPI\Library\TaavSystem.Library\Library.InfraStuctureLayer\obj\Debug\net6.0\Library.InfraStuctureLayer.csproj.AssemblyReference.cache
+F:\Job-programing\Taav Sys Course\TAAV_Tests\WebAPI\Library\TaavSystem.Library\Library.InfraStuctureLayer\obj\Debug\net6.0\Library.InfraStuctureLayer.GeneratedMSBuildEditorConfig.editorconfig
+F:\Job-programing\Taav Sys Course\TAAV_Tests\WebAPI\Library\TaavSystem.Library\Library.InfraStuctureLayer\obj\Debug\net6.0\Library.InfraStuctureLayer.AssemblyInfoInputs.cache
+F:\Job-programing\Taav Sys Course\TAAV_Tests\WebAPI\Library\TaavSystem.Library\Library.InfraStuctureLayer\obj\Debug\net6.0\Library.InfraStuctureLayer.AssemblyInfo.cs
+F:\Job-programing\Taav Sys Course\TAAV_Tests\WebAPI\Library\TaavSystem.Library\Library.InfraStuctureLayer\obj\Debug\net6.0\Library.InfraStuctureLayer.csproj.CoreCompileInputs.cache
+F:\Job-programing\Taav Sys Course\TAAV_Tests\WebAPI\Library\TaavSystem.Library\Library.InfraStuctureLayer\bin\Debug\net6.0\Library.InfraStuctureLayer.deps.json
+F:\Job-programing\Taav Sys Course\TAAV_Tests\WebAPI\Library\TaavSystem.Library\Library.InfraStuctureLayer\bin\Debug\net6.0\Library.InfraStuctureLayer.runtimeconfig.json
+F:\Job-programing\Taav Sys Course\TAAV_Tests\WebAPI\Library\TaavSystem.Library\Library.InfraStuctureLayer\bin\Debug\net6.0\Library.InfraStuctureLayer.dll
+F:\Job-programing\Taav Sys Course\TAAV_Tests\WebAPI\Library\TaavSystem.Library\Library.InfraStuctureLayer\bin\Debug\net6.0\Library.InfraStuctureLayer.pdb
+F:\Job-programing\Taav Sys Course\TAAV_Tests\WebAPI\Library\TaavSystem.Library\Library.InfraStuctureLayer\bin\Debug\net6.0\Library.DomainLayer.dll
+F:\Job-programing\Taav Sys Course\TAAV_Tests\WebAPI\Library\TaavSystem.Library\Library.InfraStuctureLayer\bin\Debug\net6.0\Library.DomainLayer.pdb
+F:\Job-programing\Taav Sys Course\TAAV_Tests\WebAPI\Library\TaavSystem.Library\Library.InfraStuctureLayer\obj\Debug\net6.0\Library.InfraStuctureLayer.csproj.CopyComplete
+F:\Job-programing\Taav Sys Course\TAAV_Tests\WebAPI\Library\TaavSystem.Library\Library.InfraStuctureLayer\obj\Debug\net6.0\Library.InfraStuctureLayer.dll
+F:\Job-programing\Taav Sys Course\TAAV_Tests\WebAPI\Library\TaavSystem.Library\Library.InfraStuctureLayer\obj\Debug\net6.0\refint\Library.InfraStuctureLayer.dll
+F:\Job-programing\Taav Sys Course\TAAV_Tests\WebAPI\Library\TaavSystem.Library\Library.InfraStuctureLayer\obj\Debug\net6.0\Library.InfraStuctureLayer.pdb
+F:\Job-programing\Taav Sys Course\TAAV_Tests\WebAPI\Library\TaavSystem.Library\Library.InfraStuctureLayer\obj\Debug\net6.0\Library.InfraStuctureLayer.genruntimeconfig.cache
+F:\Job-programing\Taav Sys Course\TAAV_Tests\WebAPI\Library\TaavSystem.Library\Library.InfraStuctureLayer\obj\Debug\net6.0\ref\Library.InfraStuctureLayer.dll
