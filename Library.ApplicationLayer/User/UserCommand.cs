@@ -42,7 +42,7 @@ namespace Library.ApplicationLayer.User
                 _repository.Save();
             }
         }
-        public void BorrowBook(int userId, int bookId, BorrowBookDTO borrowBookDTO)
+        public void BorrowBook(int userId, int bookId, UserBorrowBookDTO borrowBookDTO)
         {
             var user=_repository.GetByIdWithBorrowedBooks(userId);
             if (user != null && user.BorrowBooks.Count<4)
