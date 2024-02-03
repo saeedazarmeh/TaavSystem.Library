@@ -23,6 +23,10 @@ namespace Library.InfraStuctureLayer.Persistent.EF
 
         public DbSet<Book> Books { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<DomainLayer.Category.Category> Categories { get; set; }
+        public DbSet<DomainLayer.Author.Author> Authors { get; set; }
+      
+        public DbSet<BorrowBook> BorrowBooks { get; set; }
 
 
 

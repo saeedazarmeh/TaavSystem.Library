@@ -16,4 +16,9 @@ namespace Library.ApplicationLayer.User
         public string Name { get; set; }
         public string Emai { get; set; }
     }
+    public class UserBorrowBookDTO
+    {
+        public DateTime StartDay { get; set; }
+        public int Duration { get; set; }
+    }
 }

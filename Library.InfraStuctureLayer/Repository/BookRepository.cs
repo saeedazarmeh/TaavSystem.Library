@@ -26,24 +26,28 @@ namespace Library.InfraStuctureLayer.Repository
 
         public List<Book> GetAll()
         {
-            return _dbContext.Books.ToList();
+            return _dbContext.Books.Include(b => b.Category).Include(b => b.Author).ToList();
         }
 
         public Book GetById(int BookId)
         {
             return _dbContext.Books.FirstOrDefault(b => b.Id == BookId);
         }
+        public Book GetByIdWithDetails(int BookId)
+        {
+            return _dbContext.Books.Include(b=>b.Category).Include(b=>b.Author).FirstOrDefault(b => b.Id == BookId);
+        }
 
         public List<Book> GetByNamrOrCategory(string? name, string? category)
         {
-            List<Book> filteredBooks= _dbContext.Books.ToList();
+            List<Book> filteredBooks= _dbContext.Books.Include(b=>b.Category).Include(b=>b.Author).ToList();
             if(name != null)
             {
                filteredBooks= filteredBooks.Where(b => b.Name == name).ToList();
             }
-            if (category != null)
+            if(category != null)
             {
-                filteredBooks = filteredBooks.Where(b => b.Category == category).ToList();
+                filteredBooks=filteredBooks.Where(b=>b.Category.Name==category).ToList();
             }
             return filteredBooks;
 
@@ -51,7 +55,6 @@ namespace Library.InfraStuctureLayer.Repository
 
         public void Update(Book book)
         {
-            //_dbContext.Entry(book).State = EntityState.Modified;
             _dbContext.Books.Update(book);
         }
         public async void Delete(Book book)

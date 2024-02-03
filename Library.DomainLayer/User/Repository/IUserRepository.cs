@@ -12,6 +12,7 @@ namespace Library.DomainLayer.User.Repository
         List<User> GetAll();
         List<User> GetByName(string name);
         User GetById(int userId);
+        User GetByIdWithBorrowedBooks(int userId);
         void Update(User use);
         void Delete(User user);
         void Save();

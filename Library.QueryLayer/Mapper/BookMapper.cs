@@ -18,19 +18,29 @@ namespace Library.QueryLayer.Mapper
                 booksResultDTO.Add(new BookResultDTO()
                 {
                     PublishYear = book.PublishYear,
-                    Author = book.Author,
+                    Author = book.Author.Name,
+                    Category = book.Category.Name,
                     Name = book.Name,
-                    Category = book.Category,
                 });
             }
             return booksResultDTO;
         }
-        public static BookResultDTO BookMap(this DomainLayer.Book.Book book)
+        public static BookResultDTO BookMapWithDet(this DomainLayer.Book.Book book)
         {
             var bookResultDTO =new BookResultDTO() 
-            { 
-                Category = book.Category,
-                Author = book.Author,
+            {
+
+                Author = book.Author.Name,
+                Category = book.Category.Name,
+                PublishYear = book.PublishYear,
+                Name = book.Name,
+            };
+            return bookResultDTO;
+        }
+        public static BookResultDTO BookMap(this DomainLayer.Book.Book book)
+        {
+            var bookResultDTO = new BookResultDTO()
+            {
                 PublishYear = book.PublishYear,
                 Name = book.Name,
             };

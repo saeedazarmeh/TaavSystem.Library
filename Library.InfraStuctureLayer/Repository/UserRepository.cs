@@ -52,5 +52,10 @@ namespace Library.InfraStuctureLayer.Repository
         {
             _dbContext.SaveChanges();
         }
+
+        public User GetByIdWithBorrowedBooks(int userId)
+        {
+            return _dbContext.Users.Include(u=>u.BorrowBooks).FirstOrDefault(u => u.Id == userId);
+        }
     }
 }

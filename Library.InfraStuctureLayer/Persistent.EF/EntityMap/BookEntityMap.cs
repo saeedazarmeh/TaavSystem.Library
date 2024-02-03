@@ -16,8 +16,6 @@ namespace Library.InfraStuctureLayer.Persistent.EF.EntityMap
             builder.ToTable("Books", "Book");
             builder.HasKey(x => x.Id);
             builder.Property(x => x.Name).HasMaxLength(50).IsRequired();
-            builder.Property(x => x.Category).HasMaxLength(30).IsRequired();
-            builder.Property(x => x.Author).HasMaxLength(80).IsRequired();
             builder.Property(x => x.PublishYear).IsRequired();
         }
     }

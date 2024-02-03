@@ -17,10 +17,11 @@ namespace TaavSystem.Library.Controllers
             _command = command;
             _query = query;
         }
+
         [HttpPost("Add_Book")]
-        public void AddBook([FromBody] BookDTO Book)
+        public void AddBook([FromQuery]int categoryId,int authorId, [FromBody] BookDTO Book)
         {
-            _command.AddBook(Book);
+            _command.AddBook(Book,categoryId,authorId);
         }
 
         [HttpGet("Get_All_Books")]
@@ -30,27 +31,33 @@ namespace TaavSystem.Library.Controllers
         }
 
         [HttpGet("Get_Filltered_Books")]
-        public List<BookResultDTO> GetFillterBooks([FromQuery] BookFilltringtDTO Book)
+        public List<BookResultDTO> GetFillterBooks( [FromQuery] BookFilltringtDTO Book)
         {
             return _query.GetFillteredBooks(Book);
         }
 
-        [HttpGet("Get_Book_ById")]
-        public BookResultDTO GetBookById([FromQuery] int BookId)
+        [HttpGet("Get_Book_ById/{bookId}")]
+        public BookResultDTO GetBookById([FromRoute] int bookId)
         {
-            return _query.GetBookById(BookId);
+            return _query.GetBookById(bookId);
         }
 
-        [HttpPatch("Update_Book")]
-        public void UpdateBook([FromBody] UpdateBookDTO updateBookDTO)
+        [HttpGet("Get_Book_ById_WithDet/{bookId}")]
+        public BookResultDTO GetBookByIdWithCategoryAndAuthor([FromRoute] int bookId)
         {
-            _command.UpdateBook(updateBookDTO);
+            return _query.GetBookByIdWithDet(bookId);
         }
 
-        [HttpDelete("Delete_Book")]
-        public void DeleteBook([FromQuery] int BookId)
+        [HttpPatch("Update_Book/{bookId}")]
+        public void UpdateBook([FromRoute] int bookId, [FromBody] UpdateBookDTO updateBookDTO)
         {
-            _command.DeleteBook(BookId);
+            _command.UpdateBook(bookId, updateBookDTO);
+        }
+
+        [HttpDelete("Delete_Book/{bookId}")]
+        public void DeleteBook([FromRoute] int bookId)
+        {
+            _command.DeleteBook(bookId);
         }
     }
 }

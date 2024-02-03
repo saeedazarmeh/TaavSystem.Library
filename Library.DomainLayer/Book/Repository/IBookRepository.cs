@@ -12,6 +12,7 @@ namespace Library.DomainLayer.Book.Repository
         List<Book> GetAll();
         List<Book> GetByNamrOrCategory(string name,string category);
         Book GetById(int BookId);
+        Book GetByIdWithDetails(int BookId);
         void Update(Book book);
         void Delete(Book book);
         void Save();

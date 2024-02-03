@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "KnNlB5Bv+yvxnQ9Mx94tgDFKsywRT/krbXQCA8+FTmHchb51Q3AtXSgIHkLJ9PfXK+o09kqf6shHhKZtYIAXzA==",
+  "dgSpecHash": "ViCYaLMBvIiwad5wj7629wtkfB6eH6a+Inj/BXA8ujofkelW82s1IlxSg1lTl8trxN3uzID3x4JD5zL1Ixezaw==",
   "success": true,
-  "projectFilePath": "F:\\Job-programing\\Taav Sys Course\\TAAV_Tests\\WebAPI\\Library\\TaavSystem.Library\\Library.InfraStuctureLayer\\Library.InfraStuctureLayer.csproj",
+  "projectFilePath": "F:\\Job-programing\\Taav Sys Course\\TAAV_Tests\\WebAPI\\Library\\TaavSystem.Library\\TaavSystem.Library\\Library.InfraStuctureLayer\\Library.InfraStuctureLayer.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Saeed\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Saeed\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",

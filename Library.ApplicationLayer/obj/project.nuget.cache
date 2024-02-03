@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "SzmySn+42SjqwPVRNvnYwa/79/xK78ozvxopnJXIM7B55TdZoNLUucGyxKSfykgrL6nmJcpjjsG1jbExTZG/Eg==",
+  "dgSpecHash": "k0EJ4RKw3x1iviUt2oU1uGMiKQttRCjnS1MXvp0eNlLNOvMrKTxnrmtf3EJPpfcpe1pok4z//pi80c8v4mSV/w==",
   "success": true,
-  "projectFilePath": "F:\\Job-programing\\Taav Sys Course\\TAAV_Tests\\WebAPI\\Library\\TaavSystem.Library\\Library.ApplicationLayer\\Library.ApplicationLayer.csproj",
+  "projectFilePath": "F:\\Job-programing\\Taav Sys Course\\TAAV_Tests\\WebAPI\\Library\\TaavSystem.Library\\TaavSystem.Library\\Library.ApplicationLayer\\Library.ApplicationLayer.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

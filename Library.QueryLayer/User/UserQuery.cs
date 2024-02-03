@@ -14,6 +14,7 @@ namespace Library.QueryLayer.User
         List<UserResultDTO> GetAllUsers();
         UserResultDTO GetUserById(int userId);
         List<UserResultDTO> GetFillteredUsers(UserFillteringDTO user);
+        UserResultDTOWithBooks GetUserByIdWithBorrrowedBooks(int userId);
     }
     public class UserQuery : IUserQuery
     {
@@ -40,6 +41,11 @@ namespace Library.QueryLayer.User
         {
             var user = _repository.GetById(userId);
             return user.UserMap();
+        }
+        public UserResultDTOWithBooks GetUserByIdWithBorrrowedBooks(int userId)
+        {
+            var user = _repository.GetByIdWithBorrowedBooks(userId);
+            return user.UserMapWithBooks();
         }
     }
 }

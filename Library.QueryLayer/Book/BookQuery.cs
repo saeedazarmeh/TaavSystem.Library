@@ -13,6 +13,7 @@ namespace Library.QueryLayer.Book
     {
         List<BookResultDTO> GetAllBook();
         BookResultDTO GetBookById(int bookId);
+        BookResultDTO GetBookByIdWithDet(int bookId);
         List<BookResultDTO> GetFillteredBooks(BookFilltringtDTO book);
     }
     public class BookQuery : IBookQuery
@@ -34,6 +35,11 @@ namespace Library.QueryLayer.Book
         {
             var books = _repository.GetAll();
             return books.BooksMap();
+        }
+        public BookResultDTO GetBookByIdWithDet(int bookId)
+        {
+            var book = _repository.GetByIdWithDetails(bookId);
+            return book.BookMapWithDet();
         }
 
         public BookResultDTO GetBookById(int bookId)

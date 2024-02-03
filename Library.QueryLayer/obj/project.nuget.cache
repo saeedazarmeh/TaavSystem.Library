@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "QzKTpCxi9CWpjeTpQuQN+Yfc5EuwHgskTZxHUoqkm9OCJmLQhEQO9valY/M1Bzv8eorZaR3B3s/ZdZTj28D4JA==",
+  "dgSpecHash": "VETe+Ltf4y2EyAyIffsFBhRtLbCpLlNEpB9Bc+R/OXH7AdTYNJARnDt4YVQBve2IgbIMXaleLO/3qzGeU9vXSQ==",
   "success": true,
-  "projectFilePath": "F:\\Job-programing\\Taav Sys Course\\TAAV_Tests\\WebAPI\\Library\\TaavSystem.Library\\Library.QueryLayer\\Library.QueryLayer.csproj",
+  "projectFilePath": "F:\\Job-programing\\Taav Sys Course\\TAAV_Tests\\WebAPI\\Library\\TaavSystem.Library\\TaavSystem.Library\\Library.QueryLayer\\Library.QueryLayer.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

@@ -17,6 +17,15 @@ namespace Library.DomainLayer.User
         public string Name { get; set; }
         public string? Email { get; set; }
         public DateTime CreationAt { get; set; }=DateTime.Now;
+        public HashSet<BorrowBook> BorrowBooks { get; set; }=new HashSet<BorrowBook>();
+        public void BorrowBook(BorrowBook borrowBook)
+        {
+            BorrowBooks.Add(borrowBook);
+        }
+        public void GetBackBook(BorrowBook borrowBook)
+        {
+            BorrowBooks.Remove(borrowBook);
+        }
         public void Edit(string name, string email)
         {
             if(name != null)

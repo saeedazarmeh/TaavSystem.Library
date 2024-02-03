@@ -17,8 +17,8 @@ namespace Library.QueryLayer.Mapper
             {
                 usersResultDTO.Add(new UserResultDTO()
                 {
-                   Name = user.Name,
-                   Email=user.Email
+                    Name = user.Name,
+                    Email = user.Email
                 });
             }
             return usersResultDTO;
@@ -31,6 +31,33 @@ namespace Library.QueryLayer.Mapper
                 Email = user.Email
             };
             return userResultDTO;
+        }
+        public static UserResultDTOWithBooks UserMapWithBooks(this DomainLayer.User.User user)
+        {
+            var userResultDTO = new UserResultDTOWithBooks()
+            {
+                Name = user.Name,
+                Email = user.Email,
+                Books = user.BorrowBooks.BorrowedBooks()
+            };
+            return userResultDTO;
+        }
+        public static List<BorrowBookResultDTO> BorrowedBooks(this HashSet<BorrowBook> borrowBooks)
+        {
+            var borrowedBooksDTO = new List<BorrowBookResultDTO>();
+            foreach (BorrowBook borrowBook in borrowBooks)
+            {
+
+                borrowedBooksDTO.Add(new BorrowBookResultDTO()
+                {
+                    BookId = borrowBook.BookId,
+                    BoroowDate = borrowBook.Start,
+                    Duration = borrowBook.DurationPerDay
+                }
+                );
+            }
+
+            return borrowedBooksDTO;
         }
     }
 }

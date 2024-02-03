@@ -22,6 +22,24 @@ namespace Library.InfraStuctureLayer.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
+            modelBuilder.Entity("Library.DomainLayer.Author.Author", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(30)
+                        .HasColumnType("nvarchar(30)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Authors", "Author");
+                });
+
             modelBuilder.Entity("Library.DomainLayer.Book.Book", b =>
                 {
                     b.Property<int>("Id")
@@ -30,15 +48,11 @@ namespace Library.InfraStuctureLayer.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<string>("Author")
-                        .IsRequired()
-                        .HasMaxLength(80)
-                        .HasColumnType("nvarchar(80)");
+                    b.Property<int>("AuthorId")
+                        .HasColumnType("int");
 
-                    b.Property<string>("Category")
-                        .IsRequired()
-                        .HasMaxLength(30)
-                        .HasColumnType("nvarchar(30)");
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -50,7 +64,58 @@ namespace Library.InfraStuctureLayer.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("AuthorId");
+
+                    b.HasIndex("CategoryId");
+
                     b.ToTable("Books", "Book");
+                });
+
+            modelBuilder.Entity("Library.DomainLayer.Category.Category", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(30)
+                        .HasColumnType("nvarchar(30)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Categories", "Category");
+                });
+
+            modelBuilder.Entity("Library.DomainLayer.User.BorrowBook", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int>("BookId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("DurationPerDay")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("Start")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BookId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("BorrowBooks");
                 });
 
             modelBuilder.Entity("Library.DomainLayer.User.User", b =>
@@ -76,6 +141,64 @@ namespace Library.InfraStuctureLayer.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Users", "User");
+                });
+
+            modelBuilder.Entity("Library.DomainLayer.Book.Book", b =>
+                {
+                    b.HasOne("Library.DomainLayer.Author.Author", "Author")
+                        .WithMany("Books")
+                        .HasForeignKey("AuthorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Library.DomainLayer.Category.Category", "Category")
+                        .WithMany("Books")
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Author");
+
+                    b.Navigation("Category");
+                });
+
+            modelBuilder.Entity("Library.DomainLayer.User.BorrowBook", b =>
+                {
+                    b.HasOne("Library.DomainLayer.Book.Book", "Book")
+                        .WithMany("BorrowBooks")
+                        .HasForeignKey("BookId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Library.DomainLayer.User.User", "User")
+                        .WithMany("BorrowBooks")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Book");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("Library.DomainLayer.Author.Author", b =>
+                {
+                    b.Navigation("Books");
+                });
+
+            modelBuilder.Entity("Library.DomainLayer.Book.Book", b =>
+                {
+                    b.Navigation("BorrowBooks");
+                });
+
+            modelBuilder.Entity("Library.DomainLayer.Category.Category", b =>
+                {
+                    b.Navigation("Books");
+                });
+
+            modelBuilder.Entity("Library.DomainLayer.User.User", b =>
+                {
+                    b.Navigation("BorrowBooks");
                 });
 #pragma warning restore 612, 618
         }

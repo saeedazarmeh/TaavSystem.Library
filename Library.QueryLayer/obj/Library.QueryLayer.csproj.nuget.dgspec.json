@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "F:\\Job-programing\\Taav Sys Course\\TAAV_Tests\\WebAPI\\Library\\TaavSystem.Library\\Library.QueryLayer\\Library.QueryLayer.csproj": {}
+    "F:\\Job-programing\\Taav Sys Course\\TAAV_Tests\\WebAPI\\Library\\TaavSystem.Library\\TaavSystem.Library\\Library.QueryLayer\\Library.QueryLayer.csproj": {}
   },
   "projects": {
-    "F:\\Job-programing\\Taav Sys Course\\TAAV_Tests\\WebAPI\\Library\\TaavSystem.Library\\Library.DomainLayer\\Library.DomainLayer.csproj": {
+    "F:\\Job-programing\\Taav Sys Course\\TAAV_Tests\\WebAPI\\Library\\TaavSystem.Library\\TaavSystem.Library\\Library.DomainLayer\\Library.DomainLayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\Job-programing\\Taav Sys Course\\TAAV_Tests\\WebAPI\\Library\\TaavSystem.Library\\Library.DomainLayer\\Library.DomainLayer.csproj",
+        "projectUniqueName": "F:\\Job-programing\\Taav Sys Course\\TAAV_Tests\\WebAPI\\Library\\TaavSystem.Library\\TaavSystem.Library\\Library.DomainLayer\\Library.DomainLayer.csproj",
         "projectName": "Library.DomainLayer",
-        "projectPath": "F:\\Job-programing\\Taav Sys Course\\TAAV_Tests\\WebAPI\\Library\\TaavSystem.Library\\Library.DomainLayer\\Library.DomainLayer.csproj",
+        "projectPath": "F:\\Job-programing\\Taav Sys Course\\TAAV_Tests\\WebAPI\\Library\\TaavSystem.Library\\TaavSystem.Library\\Library.DomainLayer\\Library.DomainLayer.csproj",
         "packagesPath": "C:\\Users\\Saeed\\.nuget\\packages\\",
-        "outputPath": "F:\\Job-programing\\Taav Sys Course\\TAAV_Tests\\WebAPI\\Library\\TaavSystem.Library\\Library.DomainLayer\\obj\\",
+        "outputPath": "F:\\Job-programing\\Taav Sys Course\\TAAV_Tests\\WebAPI\\Library\\TaavSystem.Library\\TaavSystem.Library\\Library.DomainLayer\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -64,14 +64,14 @@
         }
       }
     },
-    "F:\\Job-programing\\Taav Sys Course\\TAAV_Tests\\WebAPI\\Library\\TaavSystem.Library\\Library.QueryLayer\\Library.QueryLayer.csproj": {
+    "F:\\Job-programing\\Taav Sys Course\\TAAV_Tests\\WebAPI\\Library\\TaavSystem.Library\\TaavSystem.Library\\Library.QueryLayer\\Library.QueryLayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\Job-programing\\Taav Sys Course\\TAAV_Tests\\WebAPI\\Library\\TaavSystem.Library\\Library.QueryLayer\\Library.QueryLayer.csproj",
+        "projectUniqueName": "F:\\Job-programing\\Taav Sys Course\\TAAV_Tests\\WebAPI\\Library\\TaavSystem.Library\\TaavSystem.Library\\Library.QueryLayer\\Library.QueryLayer.csproj",
         "projectName": "Library.QueryLayer",
-        "projectPath": "F:\\Job-programing\\Taav Sys Course\\TAAV_Tests\\WebAPI\\Library\\TaavSystem.Library\\Library.QueryLayer\\Library.QueryLayer.csproj",
+        "projectPath": "F:\\Job-programing\\Taav Sys Course\\TAAV_Tests\\WebAPI\\Library\\TaavSystem.Library\\TaavSystem.Library\\Library.QueryLayer\\Library.QueryLayer.csproj",
         "packagesPath": "C:\\Users\\Saeed\\.nuget\\packages\\",
-        "outputPath": "F:\\Job-programing\\Taav Sys Course\\TAAV_Tests\\WebAPI\\Library\\TaavSystem.Library\\Library.QueryLayer\\obj\\",
+        "outputPath": "F:\\Job-programing\\Taav Sys Course\\TAAV_Tests\\WebAPI\\Library\\TaavSystem.Library\\TaavSystem.Library\\Library.QueryLayer\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -93,8 +93,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "F:\\Job-programing\\Taav Sys Course\\TAAV_Tests\\WebAPI\\Library\\TaavSystem.Library\\Library.DomainLayer\\Library.DomainLayer.csproj": {
-                "projectPath": "F:\\Job-programing\\Taav Sys Course\\TAAV_Tests\\WebAPI\\Library\\TaavSystem.Library\\Library.DomainLayer\\Library.DomainLayer.csproj"
+              "F:\\Job-programing\\Taav Sys Course\\TAAV_Tests\\WebAPI\\Library\\TaavSystem.Library\\TaavSystem.Library\\Library.DomainLayer\\Library.DomainLayer.csproj": {
+                "projectPath": "F:\\Job-programing\\Taav Sys Course\\TAAV_Tests\\WebAPI\\Library\\TaavSystem.Library\\TaavSystem.Library\\Library.DomainLayer\\Library.DomainLayer.csproj"
               }
             }
           }

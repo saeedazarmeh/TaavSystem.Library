@@ -37,16 +37,32 @@ namespace TaavSystem.Library.Controllers
             return _query.GetFillteredUsers(user);
         }
 
-        [HttpGet("Get_User_ById")]
-        public UserResultDTO GetUserById([FromQuery] int userId)
+        [HttpGet("Get_User_ById/{userId}")]
+        public UserResultDTO GetUserById([FromRoute] int userId)
         {
             return _query.GetUserById(userId);
+        }
+        [HttpGet("Get_User_ById_WithBooks/{userId}")]
+        public UserResultDTOWithBooks GetUserByIdWithBooks([FromRoute] int userId)
+        {
+            return _query.GetUserByIdWithBorrrowedBooks(userId);
         }
 
         [HttpPatch("Update_User")]
         public void UpdateUser([FromBody] UpdateUserDTO updateUserDTO)
         {
             _command.UpdateUser(updateUserDTO);
+        }
+        [HttpPost("Borrow_User")]
+        public void UserBorrowBook([FromQuery] int userId, int bookId,[FromBody] UserBorrowBookDTO borrowBookDTO)
+        {
+            _command.BorrowBook(userId,bookId,borrowBookDTO);
+        }
+
+        [HttpDelete("Borrow_User")]
+        public void UserGetBackBook([FromQuery] int userId, int bookId)
+        {
+            _command.GetBackBook(userId, bookId);
         }
 
         [HttpDelete("Delete_User")]

@@ -11,6 +11,12 @@ using Library.ApplicationLayer.User;
 using TaavSystem.Library.Controllers;
 using Library.QueryLayer.Book;
 using Library.QueryLayer.User;
+using Library.DomainLayer.Category.Repository;
+using Library.DomainLayer.Author.Repository;
+using Library.ApplicationLayer.Category;
+using Library.ApplicationLayer.Author;
+using Library.QueryLayer.Category;
+using Library.QueryLayer.Author;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,10 +28,17 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IBookRepository, BookRepository>();
+builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+builder.Services.AddScoped<IAuthorRepository, AuthorRepository>();
+builder.Services.AddScoped<IAuthorRepository, AuthorRepository>();
 builder.Services.AddScoped<IBookCommand, BookCommand>();
 builder.Services.AddScoped<IUserCommand, UserCommand>();
+builder.Services.AddScoped<ICategoryCommand, CategoryCommand>();
+builder.Services.AddScoped<IAuthorCommand, AuthorCommand>();
 builder.Services.AddScoped<IBookQuery, BookQuery>();
 builder.Services.AddScoped<IUserQuery, UserQuery>();
+builder.Services.AddScoped<ICategoryQuery, CategoryQuery>();
+builder.Services.AddScoped<IAuthorQuery, AuthorQuery>();
 builder.Services.AddDbContext<EFDbContext>(option
     => option.UseSqlServer(builder.Configuration["ConnectionStrings:libraryDatabase"]));
 var app = builder.Build();
