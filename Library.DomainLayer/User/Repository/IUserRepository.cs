@@ -15,6 +15,7 @@ namespace Library.DomainLayer.User.Repository
         User GetByIdWithBorrowedBooks(int userId);
         void Update(User use);
         void Delete(User user);
+        void SaveBorrowBookUpdat(BorrowBook borrowBook);
         void Save();
     }
 }

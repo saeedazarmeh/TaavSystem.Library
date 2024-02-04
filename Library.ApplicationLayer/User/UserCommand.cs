@@ -59,9 +59,9 @@ namespace Library.ApplicationLayer.User
             var user = _repository.GetByIdWithBorrowedBooks(userId);
             if (user != null)
             {
-                var borroow = user.BorrowBooks.FirstOrDefault(b=>b.BookId==bookId);
-                user.GetBackBook(borroow);
-                _repository.Update(user);
+                var borrow = user.BorrowBooks.FirstOrDefault(b=>b.BookId==bookId);
+                user.GetBackBook(borrow);
+                _repository.SaveBorrowBookUpdat(borrow);
                 _repository.Save();
             }
 
@@ -73,6 +73,7 @@ namespace Library.ApplicationLayer.User
             if (user != null)
             {
                 _repository.Delete(user);
+
                 _repository.Save();
             }
         }

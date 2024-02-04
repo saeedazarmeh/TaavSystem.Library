@@ -59,7 +59,7 @@ namespace TaavSystem.Library.Controllers
             _command.BorrowBook(userId,bookId,borrowBookDTO);
         }
 
-        [HttpDelete("GetBack_User/{userId}")]
+        [HttpPatch("GetBack_User/{userId}")]
         public void UserGetBackBook([FromRoute] int userId, [FromQuery] int bookId)
         {
             _command.GetBackBook(userId, bookId);
