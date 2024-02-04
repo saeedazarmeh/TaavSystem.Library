@@ -20,7 +20,7 @@ namespace Library.DomainLayer.User
         public int DurationPerDay { get;private set; }
         public int BookId { get; private set; }
         public Book.Book Book { get; private set; }
-        public int UserId { get; private set; }
-        public User User { get; private set; }
+        public int UserId { get; set; }
+        public User User { get; set; }
     }
 }

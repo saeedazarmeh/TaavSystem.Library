@@ -12,7 +12,7 @@ namespace Library.ApplicationLayer.User
     public interface IUserCommand
     {
         void AddUser(UserDTO userDTO);
-        void UpdateUser(UpdateUserDTO updateUserDTO);
+        void UpdateUser(int userId, UpdateUserDTO updateUserDTO);
         void BorrowBook(int userId, int bookId, UserBorrowBookDTO borrowBookDTO);
         void GetBackBook(int userId, int bookId);
         void DeletUser(int userId);
@@ -32,9 +32,9 @@ namespace Library.ApplicationLayer.User
 
         }
 
-        public void UpdateUser(UpdateUserDTO updateUserDTO)
+        public void UpdateUser(int userId, UpdateUserDTO updateUserDTO)
         {
-            var user=_repository.GetById(updateUserDTO.Id);
+            var user=_repository.GetById(userId);
             if (user != null)
             {
                 user.Edit(updateUserDTO.Name, updateUserDTO.Emai);
@@ -49,7 +49,8 @@ namespace Library.ApplicationLayer.User
             {
                 var borroow = new BorrowBook(borrowBookDTO.StartDay, borrowBookDTO.Duration, bookId);
                 user.BorrowBook(borroow);
-                _repository.Save();
+                _repository.Update(user);
+                 _repository.Save();
             }
           
         }
@@ -60,6 +61,7 @@ namespace Library.ApplicationLayer.User
             {
                 var borroow = user.BorrowBooks.FirstOrDefault(b=>b.BookId==bookId);
                 user.GetBackBook(borroow);
+                _repository.Update(user);
                 _repository.Save();
             }
 

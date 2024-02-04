@@ -13,11 +13,11 @@ namespace Library.DomainLayer.User
             Name = name;
         }
 
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string? Email { get; set; }
-        public DateTime CreationAt { get; set; }=DateTime.Now;
-        public HashSet<BorrowBook> BorrowBooks { get; set; }=new HashSet<BorrowBook>();
+        public int Id { get;private set; }
+        public string Name { get;private set; }
+        public string? Email { get;private set; }
+        public DateTime CreationAt { get;private set; }=DateTime.Now;
+        public HashSet<BorrowBook> BorrowBooks { get;private set; }=new HashSet<BorrowBook>();
         public void BorrowBook(BorrowBook borrowBook)
         {
             BorrowBooks.Add(borrowBook);

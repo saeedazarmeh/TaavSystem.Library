@@ -48,25 +48,25 @@ namespace TaavSystem.Library.Controllers
             return _query.GetUserByIdWithBorrrowedBooks(userId);
         }
 
-        [HttpPatch("Update_User")]
-        public void UpdateUser([FromBody] UpdateUserDTO updateUserDTO)
+        [HttpPatch("Update_User/{userId}")]
+        public void UpdateUser([FromRoute] int userId,[FromBody] UpdateUserDTO updateUserDTO)
         {
-            _command.UpdateUser(updateUserDTO);
+            _command.UpdateUser(userId,updateUserDTO);
         }
-        [HttpPost("Borrow_User")]
-        public void UserBorrowBook([FromQuery] int userId, int bookId,[FromBody] UserBorrowBookDTO borrowBookDTO)
+        [HttpPatch("Borrow_User/{userId}")]
+        public void UserBorrowBook([FromRoute] int userId, [FromQuery] int bookId,[FromBody] UserBorrowBookDTO borrowBookDTO)
         {
             _command.BorrowBook(userId,bookId,borrowBookDTO);
         }
 
-        [HttpDelete("Borrow_User")]
-        public void UserGetBackBook([FromQuery] int userId, int bookId)
+        [HttpDelete("GetBack_User/{userId}")]
+        public void UserGetBackBook([FromRoute] int userId, [FromQuery] int bookId)
         {
             _command.GetBackBook(userId, bookId);
         }
 
-        [HttpDelete("Delete_User")]
-        public void DeleteUser([FromQuery] int userId)
+        [HttpDelete("Delete_User/{userId}")]
+        public void DeleteUser([FromRoute] int userId)
         {
             _command.DeletUser(userId);
         }
