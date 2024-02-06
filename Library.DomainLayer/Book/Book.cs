@@ -11,14 +11,16 @@ namespace Library.DomainLayer.Book
 {
     public class Book
     {
-        public Book(DateTime publishYear ,  string name)
+        public Book(DateTime publishYear ,  string name,int bookCount)
         {
             PublishYear = publishYear;
             Name = name;
+            BookCount=bookCount;
         }
 
         public int Id { get;private set; }
         public string Name { get; private set; }
+        public int BookCount { get; private set; }
         public DateTime PublishYear { get;private set; }
         [ForeignKey("Author")]
         public int AuthorId { get;private set; }
@@ -40,9 +42,13 @@ namespace Library.DomainLayer.Book
                 Name = name;
             }
         }
+        public void AddBookCount(int addedCount)
+        {
+            BookCount=BookCount+addedCount;
+        }
         public void AddOrEditCategory(Category.Category category)
         {
-            Category=category;
+            Category = category;
         }
         public void AddOrEditAuthor(Author.Author author)
         {

@@ -139,3 +139,9 @@ F:\Job-programing\Taav Sys Course\TAAV_Tests\WebAPI\Library\TaavSystem.Library\T
 F:\Job-programing\Taav Sys Course\TAAV_Tests\WebAPI\Library\TaavSystem.Library\TaavSystem.Library\TaavSystem.Library\obj\Debug\net6.0\TaavSystem.Library.csproj.CopyComplete
 F:\Job-programing\Taav Sys Course\TAAV_Tests\WebAPI\Library\TaavSystem.Library\TaavSystem.Library\TaavSystem.Library\obj\Debug\net6.0\TaavSystem.Library.genruntimeconfig.cache
 F:\Job-programing\Taav Sys Course\TAAV_Tests\WebAPI\Library\TaavSystem.Library\TaavSystem.Library\TaavSystem.Library\obj\Debug\net6.0\ref\TaavSystem.Library.dll
+F:\Job-programing\Taav Sys Course\TAAV_Tests\WebAPI\Library\TaavSystem.Library\TaavSystem.Library\TaavSystem.Library\bin\Debug\net6.0\FluentMigrator.dll
+F:\Job-programing\Taav Sys Course\TAAV_Tests\WebAPI\Library\TaavSystem.Library\TaavSystem.Library\TaavSystem.Library\bin\Debug\net6.0\FluentMigrator.Abstractions.dll
+F:\Job-programing\Taav Sys Course\TAAV_Tests\WebAPI\Library\TaavSystem.Library\TaavSystem.Library\TaavSystem.Library\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+F:\Job-programing\Taav Sys Course\TAAV_Tests\WebAPI\Library\TaavSystem.Library\TaavSystem.Library\TaavSystem.Library\bin\Debug\net6.0\Microsoft.Extensions.Options.dll
+F:\Job-programing\Taav Sys Course\TAAV_Tests\WebAPI\Library\TaavSystem.Library\TaavSystem.Library\TaavSystem.Library\bin\Debug\net6.0\Microsoft.Extensions.Primitives.dll
+F:\Job-programing\Taav Sys Course\TAAV_Tests\WebAPI\Library\TaavSystem.Library\TaavSystem.Library\TaavSystem.Library\bin\Debug\net6.0\de-DE\FluentMigrator.Abstractions.resources.dll

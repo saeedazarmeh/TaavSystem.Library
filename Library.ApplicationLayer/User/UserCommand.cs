@@ -1,6 +1,8 @@
 ﻿using Library.ApplicationLayer.Book;
+using Library.DomainLayer.Book.Repository;
 using Library.DomainLayer.User;
 using Library.DomainLayer.User.Repository;
+using Library.DomainLayer.User.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,62 +21,74 @@ namespace Library.ApplicationLayer.User
     }
     public class UserCommand : IUserCommand
     {
-        private readonly IUserRepository _repository;
-        public UserCommand(IUserRepository repository)
+        private readonly IUserRepository _userRepository;
+        private readonly IBookRepository _bookRepository;
+        private readonly IUserService _userService;
+        public UserCommand(IUserRepository userRepository,IUserService userService,IBookRepository bookRepository)
         {
-            _repository = repository;
+            _userRepository = userRepository;
+            _bookRepository = bookRepository;
+            _userService = userService;
         }
         public void AddUser(UserDTO userDTO)
         {
             var user=new DomainLayer.User.User(userDTO.Name);
-            _repository.Add(user);
-            _repository.Save();
+            _userRepository.Add(user);
+            _userRepository.Save();
 
         }
 
         public void UpdateUser(int userId, UpdateUserDTO updateUserDTO)
         {
-            var user=_repository.GetById(userId);
+            var user=_userRepository.GetById(userId);
             if (user != null)
             {
                 user.Edit(updateUserDTO.Name, updateUserDTO.Emai);
-                _repository.Update(user);
-                _repository.Save();
+                _userRepository.Update(user);
+                _userRepository.Save();
             }
         }
         public void BorrowBook(int userId, int bookId, UserBorrowBookDTO borrowBookDTO)
         {
-            var user=_repository.GetByIdWithBorrowedBooks(userId);
-            if (user != null && user.BorrowBooks.Count<4)
+            var user=_userRepository.GetByIdWithBorrowedBooks(userId);
+            var userBorrowedbooksCount= user.BorrowBooks.Where(b => b.Status == DomainLayer.User.Enum.BorrowStatus.NotGetBacked).Count();
+            var book=_bookRepository.GetById(bookId);
+            var RemainingBook =book.BookCount - _userService.CalBookRentedNumbers(bookId);
+            if (user != null && userBorrowedbooksCount < 4 && RemainingBook>0)
             {
                 var borroow = new BorrowBook(borrowBookDTO.StartDay, borrowBookDTO.Duration, bookId);
                 user.BorrowBook(borroow);
-                _repository.Update(user);
-                 _repository.Save();
+                _userRepository.Update(user);
+                 _userRepository.Save();
             }
           
         }
         public void GetBackBook(int userId, int bookId)
         {
-            var user = _repository.GetByIdWithBorrowedBooks(userId);
+            var user = _userRepository.GetByIdWithBorrowedBooks(userId);
             if (user != null)
             {
                 var borrow = user.BorrowBooks.FirstOrDefault(b=>b.BookId==bookId);
                 user.GetBackBook(borrow);
-                _repository.SaveBorrowBookUpdat(borrow);
-                _repository.Save();
+                _userRepository.SaveBorrowBookUpdat(borrow);
+                _userRepository.Save();
             }
 
         }
 
         public void DeletUser(int userId)
         {
-            var user = _repository.GetById(userId);
-            if (user != null)
+            var user = _userRepository.GetByIdWithBorrowedBooks(userId);
+            var hasRentedBook = user.BorrowBooks.Any(b=>b.Status==DomainLayer.User.Enum.BorrowStatus.NotGetBacked);
+            if (user != null && hasRentedBook)
             {
-                _repository.Delete(user);
+                _userRepository.Delete(user);
 
-                _repository.Save();
+                _userRepository.Save();
+            }
+            else
+            {
+                throw new Exception($"This user By Id:{userId} has Book that didn't get Bake");
             }
         }
     }

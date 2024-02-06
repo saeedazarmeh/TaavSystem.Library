@@ -10,6 +10,7 @@ namespace Library.ApplicationLayer.Book
     {
         public DateTime PublishYear { get;  set; }
         public string Name { get;  set; }
+        public int  bookCount { get;  set; }
     }
     public class UpdateBookDTO
     {

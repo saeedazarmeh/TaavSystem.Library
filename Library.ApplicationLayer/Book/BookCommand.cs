@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Library.DomainLayer.Category.Repository;
 using Library.DomainLayer.Author.Repository;
+using Library.DomainLayer.Author;
 
 namespace Library.ApplicationLayer.Book
 {
@@ -15,6 +16,7 @@ namespace Library.ApplicationLayer.Book
         public void AddBook(BookDTO bookDTO, int categoryId, int authorId);
         public void UpdateBook(int bookId, UpdateBookDTO updatebookDTO);
         public void UpdateBookCategory(int bookId, int categoryId);
+        public void UpdateBookCount(int bookId, int addedBook);
         public void UpdateBookAuthor(int bookId, int authorId);
         public void DeleteBook(int bookId);
     }
@@ -30,9 +32,9 @@ namespace Library.ApplicationLayer.Book
             _categoryRepository=categoryRepository;
             _authorRepository=authorRepository; 
         }
-        public void AddBook(BookDTO bookDTO , int categoryId, int authorId)
+        public void AddBook(BookDTO bookDTO , int categoryId, int authorId )
         {
-            var book = new DomainLayer.Book.Book(bookDTO.PublishYear,  bookDTO.Name);
+            var book = new DomainLayer.Book.Book(bookDTO.PublishYear,  bookDTO.Name ,bookDTO.bookCount);
             var category=_categoryRepository.GetById(categoryId);
             var author=_authorRepository.GetById(authorId);
             _booRepository.Add(book);
@@ -78,6 +80,17 @@ namespace Library.ApplicationLayer.Book
             if (book != null)
             {
                 _booRepository.Delete(book);
+                _booRepository.Save();
+            }
+        }
+
+        public void UpdateBookCount(int bookId, int addedBook)
+        {
+            var book = _booRepository.GetById(bookId);
+            if (book != null)
+            {
+                book.AddBookCount(addedBook);
+                _booRepository.Update(book);
                 _booRepository.Save();
             }
         }

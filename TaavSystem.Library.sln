@@ -3,15 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32804.467
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaavSystem.Library", "TaavSystem.Library\TaavSystem.Library.csproj", "{D7614B4C-35B9-4CA8-A6E9-D40E765BCE34}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaavSystem.Library", "TaavSystem.Library\TaavSystem.Library.csproj", "{D7614B4C-35B9-4CA8-A6E9-D40E765BCE34}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library.DomainLayer", "Library.DomainLayer\Library.DomainLayer.csproj", "{4B6B9E54-C15B-4CE5-8C3F-0EDE70090B05}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Library.DomainLayer", "Library.DomainLayer\Library.DomainLayer.csproj", "{4B6B9E54-C15B-4CE5-8C3F-0EDE70090B05}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library.ApplicationLayer", "Library.ApplicationLayer\Library.ApplicationLayer.csproj", "{CC5E7B4D-01AF-4569-B9E5-FE53B39C45FE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Library.ApplicationLayer", "Library.ApplicationLayer\Library.ApplicationLayer.csproj", "{CC5E7B4D-01AF-4569-B9E5-FE53B39C45FE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library.QueryLayer", "Library.QueryLayer\Library.QueryLayer.csproj", "{227F6E92-5B04-42DA-9924-D75F1A930EB3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Library.QueryLayer", "Library.QueryLayer\Library.QueryLayer.csproj", "{227F6E92-5B04-42DA-9924-D75F1A930EB3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library.InfraStuctureLayer", "Library.InfraStuctureLayer\Library.InfraStuctureLayer.csproj", "{235A68B7-68FC-47C9-8E7F-8179289788CA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Library.InfraStuctureLayer", "Library.InfraStuctureLayer\Library.InfraStuctureLayer.csproj", "{235A68B7-68FC-47C9-8E7F-8179289788CA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentMigration", "FluentMigration\FluentMigration.csproj", "{60A1DC8A-A241-4CFA-9DD7-4B1898824692}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{235A68B7-68FC-47C9-8E7F-8179289788CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{235A68B7-68FC-47C9-8E7F-8179289788CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{235A68B7-68FC-47C9-8E7F-8179289788CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{60A1DC8A-A241-4CFA-9DD7-4B1898824692}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60A1DC8A-A241-4CFA-9DD7-4B1898824692}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60A1DC8A-A241-4CFA-9DD7-4B1898824692}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60A1DC8A-A241-4CFA-9DD7-4B1898824692}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

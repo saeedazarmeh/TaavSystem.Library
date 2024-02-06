@@ -54,7 +54,7 @@ namespace Library.InfraStuctureLayer.Repository
         }
         public void SaveBorrowBookUpdat(BorrowBook borrowBook)
         {
-            _dbContext.BorrowBooks.Remove(borrowBook);
+            _dbContext.BorrowBooks.Update(borrowBook);
         }
 
         public User GetByIdWithBorrowedBooks(int userId)

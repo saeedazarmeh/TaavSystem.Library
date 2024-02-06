@@ -18,8 +18,8 @@ namespace TaavSystem.Library.Controllers
             _query = query;
         }
 
-        [HttpPost("Add_Book")]
-        public void AddBook([FromQuery]int categoryId,int authorId, [FromBody] BookDTO Book)
+        [HttpPost("Define_Book")]
+        public void DefineBook([FromQuery]int categoryId,int authorId, [FromBody] BookDTO Book)
         {
             _command.AddBook(Book,categoryId,authorId);
         }
@@ -52,6 +52,12 @@ namespace TaavSystem.Library.Controllers
         public void UpdateBook([FromRoute] int bookId, [FromBody] UpdateBookDTO updateBookDTO)
         {
             _command.UpdateBook(bookId, updateBookDTO);
+        }
+
+        [HttpPatch("Add_Book_Numbers/{bookId}")]
+        public void AddBookNumber([FromRoute] int bookId, [FromBody] int addedNumbers)
+        {
+            _command.UpdateBookCount(bookId,addedNumbers);
         }
 
         [HttpDelete("Delete_Book/{bookId}")]

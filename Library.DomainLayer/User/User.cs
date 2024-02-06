@@ -24,7 +24,7 @@ namespace Library.DomainLayer.User
         }
         public void GetBackBook(BorrowBook borrowBook)
         {
-            BorrowBooks.Remove(borrowBook);
+            borrowBook.GetBackBook();
         }
         public void Edit(string name, string email)
         {

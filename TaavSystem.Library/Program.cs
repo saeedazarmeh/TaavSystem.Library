@@ -17,6 +17,8 @@ using Library.ApplicationLayer.Category;
 using Library.ApplicationLayer.Author;
 using Library.QueryLayer.Category;
 using Library.QueryLayer.Author;
+using Library.DomainLayer.User.Service;
+using Library.InfraStuctureLayer.Service;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -39,9 +41,11 @@ builder.Services.AddScoped<IBookQuery, BookQuery>();
 builder.Services.AddScoped<IUserQuery, UserQuery>();
 builder.Services.AddScoped<ICategoryQuery, CategoryQuery>();
 builder.Services.AddScoped<IAuthorQuery, AuthorQuery>();
+builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddDbContext<EFDbContext>(option
     => option.UseSqlServer(builder.Configuration["ConnectionStrings:libraryDatabase"]));
 var app = builder.Build();
+
 
 
 // Configure the HTTP request pipeline.
