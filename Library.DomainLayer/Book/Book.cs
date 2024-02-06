@@ -30,7 +30,7 @@ namespace Library.DomainLayer.Book
         public int CategoryId { get;private set; }
       
         public virtual Category.Category Category { get;private set; }
-        public HashSet<BorrowBook> BorrowBooks { get;private set; }
+        public List<BorrowBook> BorrowBooks { get;private set; }
         public void Edit(DateTime publishYear, string name)
         {
             if (publishYear != null)

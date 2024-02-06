@@ -13,7 +13,7 @@ namespace Library.InfraStuctureLayer.Persistent.EF.EntityMap
     {
         public void Configure(EntityTypeBuilder<Author> builder)
         {
-            builder.ToTable("Authors", "Author");
+            builder.ToTable("Authors");
             builder.HasKey(c => c.Id);
             builder.Property(c => c.Name).HasMaxLength(30).IsRequired();
             builder.HasMany(c => c.Books).WithOne(b => b.Author).HasForeignKey(b => b.AuthorId);

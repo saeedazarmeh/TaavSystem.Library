@@ -17,7 +17,7 @@ namespace Library.DomainLayer.User
         public string Name { get;private set; }
         public string? Email { get;private set; }
         public DateTime CreationAt { get;private set; }=DateTime.Now;
-        public HashSet<BorrowBook> BorrowBooks { get;private set; }=new HashSet<BorrowBook>();
+        public List<BorrowBook> BorrowBooks { get;private set; }=new List<BorrowBook>();
         public void BorrowBook(BorrowBook borrowBook)
         {
             BorrowBooks.Add(borrowBook);

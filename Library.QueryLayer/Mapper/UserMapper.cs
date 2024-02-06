@@ -42,7 +42,7 @@ namespace Library.QueryLayer.Mapper
             };
             return userResultDTO;
         }
-        public static List<BorrowBookResultDTO> BorrowedBooks(this HashSet<BorrowBook> borrowBooks)
+        public static List<BorrowBookResultDTO> BorrowedBooks(this List<BorrowBook> borrowBooks)
         {
             var borrowedBooksDTO = new List<BorrowBookResultDTO>();
             foreach (BorrowBook borrowBook in borrowBooks)

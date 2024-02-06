@@ -28,7 +28,7 @@ namespace Library.QueryLayer.Author
 
         public List<AuthorResultDTO> GetAuthors()
         {
-            var authors = _repository.GetAllByItsBooks();
+            var authors = _repository.GetAll();
             return authors.CategoriesMap();
         }
         public List<AuthorResultDTOByItsBooks> GetAuthorsWithBooks()

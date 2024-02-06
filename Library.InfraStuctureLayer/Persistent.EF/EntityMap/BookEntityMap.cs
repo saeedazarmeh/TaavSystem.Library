@@ -13,10 +13,11 @@ namespace Library.InfraStuctureLayer.Persistent.EF.EntityMap
     {
         public void Configure(EntityTypeBuilder<Book> builder)
         {
-            builder.ToTable("Books", "Book");
+            builder.ToTable("Books");
             builder.HasKey(x => x.Id);
             builder.Property(x => x.Name).HasMaxLength(50).IsRequired();
             builder.Property(x => x.PublishYear).IsRequired();
+            builder.HasMany(c => c.BorrowBooks).WithOne(b => b.Book).HasForeignKey(b => b.BookId);
         }
     }
 }

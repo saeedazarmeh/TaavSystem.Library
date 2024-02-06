@@ -15,7 +15,7 @@ namespace FluentMigration.Migrations
             Create.Table("Users")
             .WithColumn("Id").AsInt32().PrimaryKey().Identity()
             .WithColumn("Name").AsString(80)
-            .WithColumn("Email").AsString(50)
+            .WithColumn("Email").AsString(50).Nullable()
             .WithColumn("CreationAt").AsDateTime();
         }
 
