@@ -18,6 +18,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Library.ApplicationLayer\Library.ApplicationLayer.csproj" />
+    <ProjectReference Include="..\Library.CommonLayer\Library.CommonLayer.csproj" />
     <ProjectReference Include="..\Library.InfraStuctureLayer\Library.InfraStuctureLayer.csproj" />
     <ProjectReference Include="..\Library.QueryLayer\Library.QueryLayer.csproj" />
   </ItemGroup>

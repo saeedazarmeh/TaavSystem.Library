@@ -11,6 +11,7 @@ namespace Library.DomainLayer.Author
     {
         public Author(string name)
         {
+            Gaurd(name);
             Name = name;
         }
 
@@ -19,7 +20,19 @@ namespace Library.DomainLayer.Author
         public List<Book.Book> Books { get;private set; }=new List<Book.Book>();
         public void Edit(string name)
         {
+            Gaurd(name);
             Name = name;
+        }
+        public void Gaurd(string name)
+        {
+            if(name==null)
+            {
+                throw new InvalidDataException("name couldn't be null") ;
+            }
+            else if (name.Length > 80)
+            {
+                throw new InvalidDataException("Length of Name Should be less than 80 char");
+            }
         }
     }
 }

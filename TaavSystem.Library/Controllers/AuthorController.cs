@@ -1,4 +1,5 @@
 ﻿using Library.ApplicationLayer.Author;
+using Library.CommonLayer.Result;
 using Library.DomainLayer.Author;
 using Library.QueryLayer.Author;
 using Library.QueryLayer.DTO;
@@ -7,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace TaavSystem.Library.Controllers
 {
+    
     [Route("api/[controller]")]
     [ApiController]
     public class AuthorController : ControllerBase
@@ -21,40 +23,47 @@ namespace TaavSystem.Library.Controllers
         }
 
         [HttpPost("Add_Author")]
-        public void AddAuthor([FromBody] AuthorDTO authorDTO)
+        public ApiResult AddAuthor([FromBody] AuthorDTO authorDTO)
         {
-            _command.AddAuthor(authorDTO);
+            var result=_command.AddAuthor(authorDTO);
+            HttpContext.Response.StatusCode = (int)result.Status;
+            return new ApiController().CommandResult(result);
 
         }
 
         [HttpGet("Get_All_Authors")]
-        public List<AuthorResultDTO> GetAllAuthors()
+        public ApiResult<List<AuthorResultDTO>> GetAllAuthors()
         {
-            var authors=_query.GetAuthors();
-            return authors;
+            var result=_query.GetAuthors();
+            HttpContext.Response.StatusCode = (int)result.Status;
+            return new ApiController().QueryResult<List<AuthorResultDTO>>(result);
 
         }
 
         [HttpGet("Get_All_Authors_whit _Its_Books")]
-        public List<AuthorResultDTOByItsBooks> GetAllAuthorsWhithItsBooks()
+        public ApiResult<List<AuthorResultDTOByItsBooks>> GetAllAuthorsWhithItsBooks()
         {
-            var authors = _query.GetAuthorsWithBooks();
-            return authors;
+            var result = _query.GetAuthorsWithBooks();
+            HttpContext.Response.StatusCode = (int)result.Status;
+            return new ApiController().QueryResult<List<AuthorResultDTOByItsBooks>>(result);
 
         }
         [HttpGet("Get_Author/{authorId}")]
-        public AuthorResultDTO GetAuthor([FromRoute] int authorId)
+        public ApiResult<AuthorResultDTO> GetAuthor([FromRoute] int authorId)
         {
-            var authors = _query.GetAuthorById(authorId);
-            return authors;
+            
+            var result = _query.GetAuthorById(authorId);
+            HttpContext.Response.StatusCode=(int)result.Status;
+            return new ApiController().QueryResult<AuthorResultDTO>(result);
 
         }
 
         [HttpPost("Update_Author/{authorId}")]
-        public void UpdateAuthor([FromRoute] int authorId ,[FromBody] AuthorDTO authorDTO)
+        public ApiResult UpdateAuthor([FromRoute] int authorId ,[FromBody] AuthorDTO authorDTO)
         {
-            _command.UpdateAuthor(authorId, authorDTO);
-
+            var result = _command.UpdateAuthor(authorId, authorDTO);
+            HttpContext.Response.StatusCode = (int)result.Status;
+            return new ApiController().CommandResult(result);
         }
     }
 }

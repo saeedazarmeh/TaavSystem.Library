@@ -28,3 +28,5 @@ F:\Job-programing\Taav Sys Course\TAAV_Tests\WebAPI\Library\TaavSystem.Library\T
 F:\Job-programing\Taav Sys Course\TAAV_Tests\WebAPI\Library\TaavSystem.Library\TaavSystem.Library\Library.ApplicationLayer\obj\Debug\net6.0\refint\Library.ApplicationLayer.dll
 F:\Job-programing\Taav Sys Course\TAAV_Tests\WebAPI\Library\TaavSystem.Library\TaavSystem.Library\Library.ApplicationLayer\obj\Debug\net6.0\Library.ApplicationLayer.pdb
 F:\Job-programing\Taav Sys Course\TAAV_Tests\WebAPI\Library\TaavSystem.Library\TaavSystem.Library\Library.ApplicationLayer\obj\Debug\net6.0\ref\Library.ApplicationLayer.dll
+F:\Job-programing\Taav Sys Course\TAAV_Tests\WebAPI\Library\TaavSystem.Library\TaavSystem.Library\Library.ApplicationLayer\bin\Debug\net6.0\Library.CommonLayer.dll
+F:\Job-programing\Taav Sys Course\TAAV_Tests\WebAPI\Library\TaavSystem.Library\TaavSystem.Library\Library.ApplicationLayer\bin\Debug\net6.0\Library.CommonLayer.pdb

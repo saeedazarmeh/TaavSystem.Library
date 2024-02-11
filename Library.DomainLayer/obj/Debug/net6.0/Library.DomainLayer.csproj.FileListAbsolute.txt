@@ -22,3 +22,6 @@ F:\Job-programing\Taav Sys Course\TAAV_Tests\WebAPI\Library\TaavSystem.Library\T
 F:\Job-programing\Taav Sys Course\TAAV_Tests\WebAPI\Library\TaavSystem.Library\TaavSystem.Library\Library.DomainLayer\obj\Debug\net6.0\refint\Library.DomainLayer.dll
 F:\Job-programing\Taav Sys Course\TAAV_Tests\WebAPI\Library\TaavSystem.Library\TaavSystem.Library\Library.DomainLayer\obj\Debug\net6.0\Library.DomainLayer.pdb
 F:\Job-programing\Taav Sys Course\TAAV_Tests\WebAPI\Library\TaavSystem.Library\TaavSystem.Library\Library.DomainLayer\obj\Debug\net6.0\ref\Library.DomainLayer.dll
+F:\Job-programing\Taav Sys Course\TAAV_Tests\WebAPI\Library\TaavSystem.Library\TaavSystem.Library\Library.DomainLayer\bin\Debug\net6.0\Library.CommonLayer.dll
+F:\Job-programing\Taav Sys Course\TAAV_Tests\WebAPI\Library\TaavSystem.Library\TaavSystem.Library\Library.DomainLayer\bin\Debug\net6.0\Library.CommonLayer.pdb
+F:\Job-programing\Taav Sys Course\TAAV_Tests\WebAPI\Library\TaavSystem.Library\TaavSystem.Library\Library.DomainLayer\obj\Debug\net6.0\Library.DomainLayer.csproj.CopyComplete

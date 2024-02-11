@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Library.CommonLayer\Library.CommonLayer.csproj" />
     <ProjectReference Include="..\Library.DomainLayer\Library.DomainLayer.csproj" />
   </ItemGroup>
 

@@ -10,7 +10,7 @@ namespace Library.QueryLayer.Mapper
 {
     public static class AuthorMapper
     {
-        public static List<AuthorResultDTO> CategoriesMap(this List<DomainLayer.Author.Author> authors)
+        public static List<AuthorResultDTO> AuthorsMap(this List<DomainLayer.Author.Author> authors)
         {
             var authorsDTO = new List<AuthorResultDTO>();
             foreach (var author in authors)
@@ -19,7 +19,7 @@ namespace Library.QueryLayer.Mapper
             }
             return authorsDTO;
         }
-        public static List<AuthorResultDTOByItsBooks> CategoriesMapByItsBooks(this List<DomainLayer.Author.Author> authors)
+        public static List<AuthorResultDTOByItsBooks> AuthorsMapByItsBooks(this List<DomainLayer.Author.Author> authors)
         {
             var authorsDTO = new List<AuthorResultDTOByItsBooks>();
             foreach (var author in authors)
@@ -33,7 +33,7 @@ namespace Library.QueryLayer.Mapper
             }
             return authorsDTO;
         }
-        public static AuthorResultDTO CategoryMap(this DomainLayer.Author.Author author)
+        public static AuthorResultDTO AuthorMap(this DomainLayer.Author.Author author)
         {
             return new AuthorResultDTO()
                 {

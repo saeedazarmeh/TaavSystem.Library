@@ -28,3 +28,5 @@ F:\Job-programing\Taav Sys Course\TAAV_Tests\WebAPI\Library\TaavSystem.Library\T
 F:\Job-programing\Taav Sys Course\TAAV_Tests\WebAPI\Library\TaavSystem.Library\TaavSystem.Library\Library.QueryLayer\bin\Debug\net6.0\Library.DomainLayer.pdb
 F:\Job-programing\Taav Sys Course\TAAV_Tests\WebAPI\Library\TaavSystem.Library\TaavSystem.Library\Library.QueryLayer\obj\Debug\net6.0\Library.QueryLayer.csproj.CopyComplete
 F:\Job-programing\Taav Sys Course\TAAV_Tests\WebAPI\Library\TaavSystem.Library\TaavSystem.Library\Library.QueryLayer\obj\Debug\net6.0\ref\Library.QueryLayer.dll
+F:\Job-programing\Taav Sys Course\TAAV_Tests\WebAPI\Library\TaavSystem.Library\TaavSystem.Library\Library.QueryLayer\bin\Debug\net6.0\Library.CommonLayer.dll
+F:\Job-programing\Taav Sys Course\TAAV_Tests\WebAPI\Library\TaavSystem.Library\TaavSystem.Library\Library.QueryLayer\bin\Debug\net6.0\Library.CommonLayer.pdb

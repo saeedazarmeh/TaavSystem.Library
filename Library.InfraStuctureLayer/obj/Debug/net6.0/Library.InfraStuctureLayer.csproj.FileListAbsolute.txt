@@ -32,3 +32,5 @@ F:\Job-programing\Taav Sys Course\TAAV_Tests\WebAPI\Library\TaavSystem.Library\T
 F:\Job-programing\Taav Sys Course\TAAV_Tests\WebAPI\Library\TaavSystem.Library\TaavSystem.Library\Library.InfraStuctureLayer\obj\Debug\net6.0\Library.InfraStuctureLayer.csproj.CopyComplete
 F:\Job-programing\Taav Sys Course\TAAV_Tests\WebAPI\Library\TaavSystem.Library\TaavSystem.Library\Library.InfraStuctureLayer\obj\Debug\net6.0\Library.InfraStuctureLayer.genruntimeconfig.cache
 F:\Job-programing\Taav Sys Course\TAAV_Tests\WebAPI\Library\TaavSystem.Library\TaavSystem.Library\Library.InfraStuctureLayer\obj\Debug\net6.0\ref\Library.InfraStuctureLayer.dll
+F:\Job-programing\Taav Sys Course\TAAV_Tests\WebAPI\Library\TaavSystem.Library\TaavSystem.Library\Library.InfraStuctureLayer\bin\Debug\net6.0\Library.CommonLayer.dll
+F:\Job-programing\Taav Sys Course\TAAV_Tests\WebAPI\Library\TaavSystem.Library\TaavSystem.Library\Library.InfraStuctureLayer\bin\Debug\net6.0\Library.CommonLayer.pdb

@@ -1,4 +1,5 @@
-﻿using Library.DomainLayer.Author;
+﻿using Library.CommonLayer.Result;
+using Library.DomainLayer.Author;
 using Library.DomainLayer.Author.Repository;
 using Library.DomainLayer.Category.Repository;
 using Library.QueryLayer.DTO;
@@ -13,9 +14,9 @@ namespace Library.QueryLayer.Author
 {
     public interface IAuthorQuery
     {
-        public List<AuthorResultDTO> GetAuthors();
-        public List<AuthorResultDTOByItsBooks> GetAuthorsWithBooks();
-        public AuthorResultDTO GetAuthorById(int authorId);
+        public OperationResult<List<AuthorResultDTO>> GetAuthors();
+        public OperationResult<List<AuthorResultDTOByItsBooks>> GetAuthorsWithBooks();
+        public OperationResult<AuthorResultDTO> GetAuthorById(int authorId);
     }
     public class AuthorQuery:IAuthorQuery
     {
@@ -26,20 +27,28 @@ namespace Library.QueryLayer.Author
             _repository = repository;
         }
 
-        public List<AuthorResultDTO> GetAuthors()
+        public OperationResult<List<AuthorResultDTO>> GetAuthors()
         {
             var authors = _repository.GetAll();
-            return authors.CategoriesMap();
+            return OperationResult<List<AuthorResultDTO>>
+                .Success(authors.AuthorsMap(),"Data uploded successfully");
         }
-        public List<AuthorResultDTOByItsBooks> GetAuthorsWithBooks()
+        public OperationResult<List<AuthorResultDTOByItsBooks>> GetAuthorsWithBooks()
         {
             var authors = _repository.GetAll();
-            return authors.CategoriesMapByItsBooks();
+            return OperationResult<List<AuthorResultDTOByItsBooks>>
+                .Success(authors.AuthorsMapByItsBooks(), "Data uploded successfully");
+
         }
-        public AuthorResultDTO GetAuthorById(int authorId)
+        public OperationResult<AuthorResultDTO> GetAuthorById(int authorId)
         {
             var author = _repository.GetById(authorId);
-            return author.CategoryMap();
+            if(author == null)
+            {
+                return OperationResult<AuthorResultDTO>.NotFound();
+            }
+            return OperationResult<AuthorResultDTO>
+              .Success(author.AuthorMap(), "Data uploded successfully");
         }
     }
 }

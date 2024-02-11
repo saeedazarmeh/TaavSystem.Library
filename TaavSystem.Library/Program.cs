@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration.UserSecrets;
 using Microsoft.Extensions.Options;
 using Library.DomainLayer.User.Repository;
 using Library.DomainLayer.Book.Repository;
+using Library.CommonLayer.Exeption;
 using Library.ApplicationLayer.Book;
 using Library.ApplicationLayer.User;
 using TaavSystem.Library.Controllers;
@@ -19,12 +20,28 @@ using Library.QueryLayer.Category;
 using Library.QueryLayer.Author;
 using Library.DomainLayer.User.Service;
 using Library.InfraStuctureLayer.Service;
+using Library.CommonLayer.Exeption.ExceptionHandler;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+try
+{
+    builder.Services.AddControllers();
+}
+catch (NotFoundExeption notFoundEx)
+{
 
-builder.Services.AddControllers();
+}
+catch (InvalidCastException invalidDataEx)
+{
+
+}
+catch (Exception ex)
+{
+
+}
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -59,6 +76,9 @@ app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
+app.UseApiCustomExceptionHandler();
+
 app.MapControllers();
 
 app.Run();
+

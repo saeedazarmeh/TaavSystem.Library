@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Library.QueryLayer", "Libra
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Library.InfraStuctureLayer", "Library.InfraStuctureLayer\Library.InfraStuctureLayer.csproj", "{235A68B7-68FC-47C9-8E7F-8179289788CA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentMigration", "FluentMigration\FluentMigration.csproj", "{60A1DC8A-A241-4CFA-9DD7-4B1898824692}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FluentMigration", "FluentMigration\FluentMigration.csproj", "{60A1DC8A-A241-4CFA-9DD7-4B1898824692}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library.CommonLayer", "Library.CommonLayer\Library.CommonLayer.csproj", "{AC888271-B2A5-47AC-AAEA-CF0A45163EDC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{60A1DC8A-A241-4CFA-9DD7-4B1898824692}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{60A1DC8A-A241-4CFA-9DD7-4B1898824692}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{60A1DC8A-A241-4CFA-9DD7-4B1898824692}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC888271-B2A5-47AC-AAEA-CF0A45163EDC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC888271-B2A5-47AC-AAEA-CF0A45163EDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC888271-B2A5-47AC-AAEA-CF0A45163EDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC888271-B2A5-47AC-AAEA-CF0A45163EDC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
