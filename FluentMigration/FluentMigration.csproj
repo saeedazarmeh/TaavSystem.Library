@@ -11,4 +11,8 @@
     <PackageReference Include="FluentMigrator.Runner" Version="5.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Library.Entities\Library.Entities.csproj" />
+  </ItemGroup>
+
 </Project>

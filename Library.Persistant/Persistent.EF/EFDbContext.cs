@@ -1,8 +1,4 @@
-﻿using Library.DomainLayer.Book;
-using Library.DomainLayer.User;
-using Library.DomainLayer.Author;
-using Library.DomainLayer.Category;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 
 using System;
@@ -12,6 +8,10 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using Library.Entities.User;
+using Library.Entities.Book;
+using Library.Entities.Author;
+using Library.Entities.Category;
 
 namespace Library.Persistant.Persistent.EF
 {

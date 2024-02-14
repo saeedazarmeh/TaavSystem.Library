@@ -1,9 +1,8 @@
-﻿using Library.ApplicationLayer.Category;
-using Library.CommonLayer.Result;
-using Library.QueryLayer.Category;
-using Library.QueryLayer.DTO;
+﻿using Library.Services.Categories.Contract;
+using Library.Services.Categories.Contract.DTO;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using TaavSystem.Library.Utilities.Result;
 
 namespace TaavSystem.Library.Controllers
 {
@@ -11,19 +10,17 @@ namespace TaavSystem.Library.Controllers
     [ApiController]
     public class CategoryController : ControllerBase
     {
-        private readonly ICategoryCommand _command;
-        private readonly ICategoryQuery _query;
+        private readonly ICategoryService _service;
 
-        public CategoryController(ICategoryCommand command, ICategoryQuery query)
+        public CategoryController(ICategoryService service)
         {
-            _command = command;
-            _query = query;
+            _service = service;
         }
 
         [HttpPost("Add_Category")]
         public async Task<ApiResult> AddCategory([FromBody] CategoryDTO CategoryDTO)
         {
-            await _command.AddCategory(CategoryDTO);
+            await _service.AddCategory(CategoryDTO);
             return new ApiController().CommandResult();
 
         }
@@ -31,7 +28,7 @@ namespace TaavSystem.Library.Controllers
         [HttpGet("Get_All_Categorys")]
         public async Task<ApiResult<List<CategoryResultDTO>>> GetAllCategorys()
         {
-            var result =await _query.GetCategories();
+            var result =await _service.GetCategories();
             return new ApiController().QueryResult<List<CategoryResultDTO>>(result);
 
         }
@@ -39,14 +36,14 @@ namespace TaavSystem.Library.Controllers
         [HttpGet("Get_All_Categorys_whit _Its_Books")]
         public async Task<ApiResult<List<CategoryResultDTOByItsBooks>>> GetAllCategorysWhithItsBooks()
         {
-            var result =await _query.GetCategoriesByBooks();
+            var result =await _service.GetCategoriesByBooks();
             return new ApiController().QueryResult<List<CategoryResultDTOByItsBooks>>(result);
 
         }
         [HttpGet("Get_Category/{CategoryId}")]
         public async Task<ApiResult<CategoryResultDTO>> GetCategory([FromRoute] int CategoryId)
         {
-            var result =await _query.GetCategory(CategoryId);
+            var result =await _service.GetCategory(CategoryId);
             return new ApiController().QueryResult<CategoryResultDTO>(result);
 
         }
@@ -54,7 +51,7 @@ namespace TaavSystem.Library.Controllers
         [HttpPost("Update_Category/{CategoryId}")]
         public async Task<ApiResult> UpdateCategory([FromRoute] int CategoryId, [FromBody] CategoryDTO CategoryDTO)
         {
-            await _command.UpdateCategory(CategoryId, CategoryDTO);
+            await _service.UpdateCategory(CategoryId, CategoryDTO);
             return new ApiController().CommandResult();
 
         }

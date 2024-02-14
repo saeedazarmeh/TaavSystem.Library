@@ -2,10 +2,6 @@ F:\Job-programing\Taav Sys Course\TAAV_Tests\WebAPI\Library\TaavSystem.Library\T
 F:\Job-programing\Taav Sys Course\TAAV_Tests\WebAPI\Library\TaavSystem.Library\TaavSystem.Library\Library.Persistant\bin\Debug\net6.0\Library.Persistant.runtimeconfig.json
 F:\Job-programing\Taav Sys Course\TAAV_Tests\WebAPI\Library\TaavSystem.Library\TaavSystem.Library\Library.Persistant\bin\Debug\net6.0\Library.Persistant.dll
 F:\Job-programing\Taav Sys Course\TAAV_Tests\WebAPI\Library\TaavSystem.Library\TaavSystem.Library\Library.Persistant\bin\Debug\net6.0\Library.Persistant.pdb
-F:\Job-programing\Taav Sys Course\TAAV_Tests\WebAPI\Library\TaavSystem.Library\TaavSystem.Library\Library.Persistant\bin\Debug\net6.0\Library.CommonLayer.dll
-F:\Job-programing\Taav Sys Course\TAAV_Tests\WebAPI\Library\TaavSystem.Library\TaavSystem.Library\Library.Persistant\bin\Debug\net6.0\Library.DomainLayer.dll
-F:\Job-programing\Taav Sys Course\TAAV_Tests\WebAPI\Library\TaavSystem.Library\TaavSystem.Library\Library.Persistant\bin\Debug\net6.0\Library.DomainLayer.pdb
-F:\Job-programing\Taav Sys Course\TAAV_Tests\WebAPI\Library\TaavSystem.Library\TaavSystem.Library\Library.Persistant\bin\Debug\net6.0\Library.CommonLayer.pdb
 F:\Job-programing\Taav Sys Course\TAAV_Tests\WebAPI\Library\TaavSystem.Library\TaavSystem.Library\Library.Persistant\obj\Debug\net6.0\Library.Persistant.csproj.AssemblyReference.cache
 F:\Job-programing\Taav Sys Course\TAAV_Tests\WebAPI\Library\TaavSystem.Library\TaavSystem.Library\Library.Persistant\obj\Debug\net6.0\Library.Persistant.GeneratedMSBuildEditorConfig.editorconfig
 F:\Job-programing\Taav Sys Course\TAAV_Tests\WebAPI\Library\TaavSystem.Library\TaavSystem.Library\Library.Persistant\obj\Debug\net6.0\Library.Persistant.AssemblyInfoInputs.cache
@@ -17,3 +13,9 @@ F:\Job-programing\Taav Sys Course\TAAV_Tests\WebAPI\Library\TaavSystem.Library\T
 F:\Job-programing\Taav Sys Course\TAAV_Tests\WebAPI\Library\TaavSystem.Library\TaavSystem.Library\Library.Persistant\obj\Debug\net6.0\Library.Persistant.pdb
 F:\Job-programing\Taav Sys Course\TAAV_Tests\WebAPI\Library\TaavSystem.Library\TaavSystem.Library\Library.Persistant\obj\Debug\net6.0\Library.Persistant.genruntimeconfig.cache
 F:\Job-programing\Taav Sys Course\TAAV_Tests\WebAPI\Library\TaavSystem.Library\TaavSystem.Library\Library.Persistant\obj\Debug\net6.0\ref\Library.Persistant.dll
+F:\Job-programing\Taav Sys Course\TAAV_Tests\WebAPI\Library\TaavSystem.Library\TaavSystem.Library\Library.Persistant\bin\Debug\net6.0\Library.Contract.dll
+F:\Job-programing\Taav Sys Course\TAAV_Tests\WebAPI\Library\TaavSystem.Library\TaavSystem.Library\Library.Persistant\bin\Debug\net6.0\Library.Entities.dll
+F:\Job-programing\Taav Sys Course\TAAV_Tests\WebAPI\Library\TaavSystem.Library\TaavSystem.Library\Library.Persistant\bin\Debug\net6.0\Library.Services.dll
+F:\Job-programing\Taav Sys Course\TAAV_Tests\WebAPI\Library\TaavSystem.Library\TaavSystem.Library\Library.Persistant\bin\Debug\net6.0\Library.Contract.pdb
+F:\Job-programing\Taav Sys Course\TAAV_Tests\WebAPI\Library\TaavSystem.Library\TaavSystem.Library\Library.Persistant\bin\Debug\net6.0\Library.Entities.pdb
+F:\Job-programing\Taav Sys Course\TAAV_Tests\WebAPI\Library\TaavSystem.Library\TaavSystem.Library\Library.Persistant\bin\Debug\net6.0\Library.Services.pdb

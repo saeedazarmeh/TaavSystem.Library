@@ -13,14 +13,15 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Newtonsoft.Json" Version="9.0.1" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Library.ApplicationLayer\Library.ApplicationLayer.csproj" />
-    <ProjectReference Include="..\Library.CommonLayer\Library.CommonLayer.csproj" />
+    <ProjectReference Include="..\Library.Contract\Library.Contract.csproj" />
+    <ProjectReference Include="..\Library.Entities\Library.Entities.csproj" />
     <ProjectReference Include="..\Library.Persistant\Library.Persistant.csproj" />
-    <ProjectReference Include="..\Library.QueryLayer\Library.QueryLayer.csproj" />
+    <ProjectReference Include="..\Library.Services\Library.Services.csproj" />
   </ItemGroup>
 
 </Project>

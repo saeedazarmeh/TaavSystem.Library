@@ -1,0 +1,12 @@
+F:\Job-programing\Taav Sys Course\TAAV_Tests\WebAPI\Library\TaavSystem.Library\TaavSystem.Library\Library.Entities\bin\Debug\net6.0\Library.Entities.deps.json
+F:\Job-programing\Taav Sys Course\TAAV_Tests\WebAPI\Library\TaavSystem.Library\TaavSystem.Library\Library.Entities\bin\Debug\net6.0\Library.Entities.dll
+F:\Job-programing\Taav Sys Course\TAAV_Tests\WebAPI\Library\TaavSystem.Library\TaavSystem.Library\Library.Entities\bin\Debug\net6.0\Library.Entities.pdb
+F:\Job-programing\Taav Sys Course\TAAV_Tests\WebAPI\Library\TaavSystem.Library\TaavSystem.Library\Library.Entities\obj\Debug\net6.0\Library.Entities.csproj.AssemblyReference.cache
+F:\Job-programing\Taav Sys Course\TAAV_Tests\WebAPI\Library\TaavSystem.Library\TaavSystem.Library\Library.Entities\obj\Debug\net6.0\Library.Entities.GeneratedMSBuildEditorConfig.editorconfig
+F:\Job-programing\Taav Sys Course\TAAV_Tests\WebAPI\Library\TaavSystem.Library\TaavSystem.Library\Library.Entities\obj\Debug\net6.0\Library.Entities.AssemblyInfoInputs.cache
+F:\Job-programing\Taav Sys Course\TAAV_Tests\WebAPI\Library\TaavSystem.Library\TaavSystem.Library\Library.Entities\obj\Debug\net6.0\Library.Entities.AssemblyInfo.cs
+F:\Job-programing\Taav Sys Course\TAAV_Tests\WebAPI\Library\TaavSystem.Library\TaavSystem.Library\Library.Entities\obj\Debug\net6.0\Library.Entities.csproj.CoreCompileInputs.cache
+F:\Job-programing\Taav Sys Course\TAAV_Tests\WebAPI\Library\TaavSystem.Library\TaavSystem.Library\Library.Entities\obj\Debug\net6.0\Library.Entities.dll
+F:\Job-programing\Taav Sys Course\TAAV_Tests\WebAPI\Library\TaavSystem.Library\TaavSystem.Library\Library.Entities\obj\Debug\net6.0\refint\Library.Entities.dll
+F:\Job-programing\Taav Sys Course\TAAV_Tests\WebAPI\Library\TaavSystem.Library\TaavSystem.Library\Library.Entities\obj\Debug\net6.0\Library.Entities.pdb
+F:\Job-programing\Taav Sys Course\TAAV_Tests\WebAPI\Library\TaavSystem.Library\TaavSystem.Library\Library.Entities\obj\Debug\net6.0\ref\Library.Entities.dll

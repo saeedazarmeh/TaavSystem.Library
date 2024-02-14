@@ -1220,6 +1220,16 @@
             "rid": "win"
           }
         }
+      },
+      "Library.Entities/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/Library.Entities.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Library.Entities.dll": {}
+        }
       }
     }
   },
@@ -3259,11 +3269,17 @@
         "system.windows.extensions.nuspec",
         "useSharedDesignerContext.txt"
       ]
+    },
+    "Library.Entities/1.0.0": {
+      "type": "project",
+      "path": "../Library.Entities/Library.Entities.csproj",
+      "msbuildProject": "../Library.Entities/Library.Entities.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "FluentMigrator.Runner >= 5.0.0"
+      "FluentMigrator.Runner >= 5.0.0",
+      "Library.Entities >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -3298,7 +3314,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "F:\\Job-programing\\Taav Sys Course\\TAAV_Tests\\WebAPI\\Library\\TaavSystem.Library\\TaavSystem.Library\\Library.Entities\\Library.Entities.csproj": {
+              "projectPath": "F:\\Job-programing\\Taav Sys Course\\TAAV_Tests\\WebAPI\\Library\\TaavSystem.Library\\TaavSystem.Library\\Library.Entities\\Library.Entities.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

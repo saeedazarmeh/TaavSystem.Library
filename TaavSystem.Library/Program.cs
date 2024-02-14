@@ -1,48 +1,28 @@
 
-
+using Library.Services.User.Contract;
 using Microsoft.EntityFrameworkCore;
-using Library.DomainLayer.User.Repository;
-using Library.DomainLayer.Book.Repository;
-using Library.CommonLayer.Exeption;
-using Library.ApplicationLayer.Book;
-using Library.ApplicationLayer.User;
-using Library.QueryLayer.Book;
-using Library.QueryLayer.User;
-using Library.DomainLayer.Category.Repository;
-using Library.DomainLayer.Author.Repository;
-using Library.ApplicationLayer.Category;
-using Library.ApplicationLayer.Author;
-using Library.QueryLayer.Category;
-using Library.QueryLayer.Author;
-using Library.DomainLayer.User.Service;
-using Library.CommonLayer.Exeption.ExceptionHandler;
-using Library.CommonLayer.UnitOfWork;
-using Library.InfraStuctureLayer.UnitOfWork;
-using Library.InfraStuctureLayer.Repository;
-using Library.Persistant.Repository;
-using Library.InfraStuctureLayer.Service;
 using Library.Persistant.Persistent.EF;
+using Library.Persistant.Persistent.EF.Authors;
+using Library.Persistant.Persistent.EF.Books;
+using Library.Persistant.Persistent.EF.Categories;
+using Library.Persistant.Persistent.EF.Users;
+using Library.Contract.UnitOfWork;
+using Library.Services.Authors.Contracts.Repository;
+using Library.Services.Categories.Contract;
+using Library.Services.Books.Contract;
+using Library.Services.Authors.Contracts;
+using Library.Services.User;
+using Library.Services.Categories.Contract.Repository;
+using Library.Services.User.Contract.Repository;
+using Library.Services.Books.Contract.Repository;
+using Library.Persistant.UnitOfWork;
+using TaavSystem.Library.Utilities.ExceptionHandler;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-try
-{
-    builder.Services.AddControllers();
-}
-catch (NotFoundExeption notFoundEx)
-{
 
-}
-catch (InvalidCastException invalidDataEx)
-{
-
-}
-catch (Exception ex)
-{
-
-}
-
+builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -52,15 +32,10 @@ builder.Services.AddScoped<IBookRepository, BookRepository>();
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 builder.Services.AddScoped<IAuthorRepository, AuthorRepository>();
 builder.Services.AddScoped<IAuthorRepository, AuthorRepository>();
-builder.Services.AddScoped<IBookCommand, BookCommand>();
-builder.Services.AddScoped<IUserCommand, UserCommand>();
-builder.Services.AddScoped<ICategoryCommand, CategoryCommand>();
-builder.Services.AddScoped<IAuthorCommand, AuthorCommand>();
-builder.Services.AddScoped<IBookQuery, BookQuery>();
-builder.Services.AddScoped<IUserQuery, UserQuery>();
-builder.Services.AddScoped<ICategoryQuery, CategoryQuery>();
-builder.Services.AddScoped<IAuthorQuery, AuthorQuery>();
+builder.Services.AddScoped<IBookService, BookService>();
 builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<ICategoryService, CategoryService>();
+builder.Services.AddScoped<IAuthorService, AuthorService>();
 builder.Services.AddDbContext<EFDbContext>(option
     => option.UseSqlServer(builder.Configuration["ConnectionStrings:libraryDatabase"]));
 var app = builder.Build();

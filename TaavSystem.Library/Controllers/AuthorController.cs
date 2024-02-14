@@ -1,31 +1,27 @@
-﻿using Library.ApplicationLayer.Author;
-using Library.CommonLayer.Result;
-using Library.DomainLayer.Author;
-using Library.QueryLayer.Author;
-using Library.QueryLayer.DTO;
+﻿using Library.Services.Authors.Contracts;
+using Library.Services.Authors.Contracts.DTO;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using TaavSystem.Library.Utilities.Result;
 
 namespace TaavSystem.Library.Controllers
 {
-    
+
     [Route("api/[controller]")]
     [ApiController]
     public class AuthorController : ControllerBase
     {
-        private readonly IAuthorCommand _command;
-        private readonly IAuthorQuery _query;
+        private readonly IAuthorService _service;
 
-        public AuthorController(IAuthorCommand command, IAuthorQuery query)
+        public AuthorController(IAuthorService service)
         {
-            _command = command;
-            _query = query;
+            _service = service;
         }
 
         [HttpPost("Add_Author")]
         public async Task<ApiResult> AddAuthor([FromBody] AuthorDTO authorDTO)
         {
-            await _command.AddAuthor(authorDTO);
+            await _service.AddAuthor(authorDTO);
             return new ApiController().CommandResult();
 
         }
@@ -33,7 +29,7 @@ namespace TaavSystem.Library.Controllers
         [HttpGet("Get_All_Authors")]
         public async Task<ApiResult<List<AuthorResultDTO>>> GetAllAuthors()
         {
-            var result=await _query.GetAuthors();
+            var result=await _service.GetAuthors();
             return new ApiController().QueryResult<List<AuthorResultDTO>>(result);
 
         }
@@ -41,7 +37,7 @@ namespace TaavSystem.Library.Controllers
         [HttpGet("Get_All_Authors_whit _Its_Books")]
         public async Task<ApiResult<List<AuthorResultDTOByItsBooks>>> GetAllAuthorsWhithItsBooks()
         {
-            var result =await _query.GetAuthorsWithBooks();
+            var result =await _service.GetAuthorsWithBooks();
             return new ApiController().QueryResult<List<AuthorResultDTOByItsBooks>>(result);
 
         }
@@ -49,7 +45,7 @@ namespace TaavSystem.Library.Controllers
         public async Task<ApiResult<AuthorResultDTO>> GetAuthor([FromRoute] int authorId)
         {
             
-            var result =await _query.GetAuthorById(authorId);
+            var result =await _service.GetAuthorById(authorId);
             return new ApiController().QueryResult<AuthorResultDTO>(result);
 
         }
@@ -57,7 +53,7 @@ namespace TaavSystem.Library.Controllers
         [HttpPost("Update_Author/{authorId}")]
         public async Task<ApiResult> UpdateAuthor([FromRoute] int authorId ,[FromBody] AuthorDTO authorDTO)
         {
-            await _command.UpdateAuthor(authorId, authorDTO);
+            await _service.UpdateAuthor(authorId, authorDTO);
             return new ApiController().CommandResult();
         }
     }

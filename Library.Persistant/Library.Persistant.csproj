@@ -16,7 +16,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Library.DomainLayer\Library.DomainLayer.csproj" />
+    <ProjectReference Include="..\Library.Contract\Library.Contract.csproj" />
+    <ProjectReference Include="..\Library.Entities\Library.Entities.csproj" />
+    <ProjectReference Include="..\Library.Services\Library.Services.csproj" />
   </ItemGroup>
 
 </Project>

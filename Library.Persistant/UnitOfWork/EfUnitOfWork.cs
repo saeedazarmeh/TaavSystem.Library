@@ -1,4 +1,4 @@
-﻿using Library.InfraStuctureLayer.Persistent.EF;
+﻿
 using Library.Persistant.Persistent.EF;
 using System;
 using System.Collections.Generic;
@@ -6,9 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Library.InfraStuctureLayer.UnitOfWork
+namespace Library.Persistant.UnitOfWork
 {
-    public class EfUnitOfWork : CommonLayer.UnitOfWork.UnitOfWork
+    public class EfUnitOfWork : Contract.UnitOfWork.UnitOfWork
     {
         private readonly EFDbContext _dbContext;
 
