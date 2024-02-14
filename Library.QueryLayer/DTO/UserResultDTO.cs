@@ -8,6 +8,7 @@ namespace Library.QueryLayer.DTO
 {
     public class UserResultDTO
     {
+        public int UserId { get; set; }
         public string Name { get; set; }
         public string? Email { get; set; }
     }
@@ -17,9 +18,10 @@ namespace Library.QueryLayer.DTO
     }
     public class UserResultDTOWithBooks
     {
+        public int UserId { get; set; }
         public string Name { get; set; }
         public string? Email { get; set; }
-        public List<BorrowBookResultDTO> Books;
+        public List<BorrowBookResultDTO> Books=new List<BorrowBookResultDTO>();
     }
     public class BorrowBookResultDTO
     {

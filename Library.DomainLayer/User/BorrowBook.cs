@@ -9,9 +9,9 @@ namespace Library.DomainLayer.User
 {
     public class BorrowBook
     {
-        public BorrowBook(DateTime start, int durationPerDay, int bookId)
+        public BorrowBook( int durationPerDay, int bookId)
         {
-            Start = start;
+            Start = DateTime.Now;
             DurationPerDay = durationPerDay;
             BookId = bookId;
             Status = BorrowStatus.NotGetBacked;

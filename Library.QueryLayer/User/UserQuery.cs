@@ -11,10 +11,10 @@ namespace Library.QueryLayer.User
 {
     public interface IUserQuery
     {
-        List<UserResultDTO> GetAllUsers();
-        UserResultDTO GetUserById(int userId);
-        List<UserResultDTO> GetFillteredUsers(UserFillteringDTO user);
-        UserResultDTOWithBooks GetUserByIdWithBorrrowedBooks(int userId);
+        Task<List<UserResultDTO>> GetAllUsers();
+        Task<UserResultDTO> GetUserById(int userId);
+        Task<List<UserResultDTO>> GetFillteredUsers(UserFillteringDTO user);
+        Task<UserResultDTOWithBooks> GetUserByIdWithBorrrowedBooks(int userId);
     }
     public class UserQuery : IUserQuery
     {
@@ -25,26 +25,26 @@ namespace Library.QueryLayer.User
             _repository = repository;
         }
 
-        public List<UserResultDTO> GetAllUsers()
+        public async Task<List<UserResultDTO>> GetAllUsers()
         {
-            var users = _repository.GetAll();
+            var users =await _repository.GetAllAsync();
             return users.UsersMap();
         }
 
-        public List<UserResultDTO> GetFillteredUsers(UserFillteringDTO user)
+        public async Task<List<UserResultDTO>> GetFillteredUsers(UserFillteringDTO user)
         {
-            var users =_repository.GetByName(user.Name);
+            var users =await _repository.GetByNameAsyn(user.Name);
             return users.UsersMap();
         }
 
-        public UserResultDTO GetUserById(int userId)
+        public async Task<UserResultDTO> GetUserById(int userId)
         {
-            var user = _repository.GetById(userId);
+            var user =await _repository.GetByIdAsyn(userId);
             return user.UserMap();
         }
-        public UserResultDTOWithBooks GetUserByIdWithBorrrowedBooks(int userId)
+        public async Task<UserResultDTOWithBooks> GetUserByIdWithBorrrowedBooks(int userId)
         {
-            var user = _repository.GetByIdWithBorrowedBooks(userId);
+            var user =await _repository.GetByIdWithBorrowedBooksAsyn(userId);
             return user.UserMapWithBooks();
         }
     }

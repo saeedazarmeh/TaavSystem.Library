@@ -23,19 +23,19 @@ namespace Library.InfraStuctureLayer.Repository
            _dbContext.Users.Add(user);
         }
 
-        public List<User> GetAll()
+        public async Task<List<User>> GetAllAsync()
         {
-            return _dbContext.Users.ToList();
+            return await _dbContext.Users.ToListAsync();
         }
 
-        public User GetById(int userId)
+        public async Task<User> GetByIdAsyn(int userId)
         {
-            return _dbContext.Users.FirstOrDefault(u=>u.Id==userId);
+            return await _dbContext.Users.FirstOrDefaultAsync(u=>u.Id==userId);
         }
 
-        public List<User> GetByName(string name)
+        public async Task<List<User>> GetByNameAsyn(string name)
         {
-            return _dbContext.Users.Where(u => u.Name == name).ToList();
+            return await _dbContext.Users.Where(u => u.Name == name).ToListAsync();
         }
 
         public void Update(User user)
@@ -58,9 +58,9 @@ namespace Library.InfraStuctureLayer.Repository
             _dbContext.BorrowBooks.Update(borrowBook);
         }
 
-        public User GetByIdWithBorrowedBooks(int userId)
+        public async Task<User> GetByIdWithBorrowedBooksAsyn(int userId)
         {
-            return _dbContext.Users.Include(u=>u.BorrowBooks).FirstOrDefault(u => u.Id == userId);
+            return await _dbContext.Users.Include(u=>u.BorrowBooks).FirstOrDefaultAsync(u => u.Id == userId);
         }
     }
 }

@@ -17,6 +17,7 @@ namespace Library.QueryLayer.Mapper
             {
                 usersResultDTO.Add(new UserResultDTO()
                 {
+                    UserId = user.Id,
                     Name = user.Name,
                     Email = user.Email
                 });
@@ -27,6 +28,7 @@ namespace Library.QueryLayer.Mapper
         {
             var userResultDTO = new UserResultDTO()
             {
+                UserId=user.Id,
                 Name = user.Name,
                 Email = user.Email
             };
@@ -36,6 +38,7 @@ namespace Library.QueryLayer.Mapper
         {
             var userResultDTO = new UserResultDTOWithBooks()
             {
+                UserId=user.Id,
                 Name = user.Name,
                 Email = user.Email,
                 Books = user.BorrowBooks.BorrowedBooks()

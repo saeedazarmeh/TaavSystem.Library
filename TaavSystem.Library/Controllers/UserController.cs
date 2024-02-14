@@ -1,4 +1,5 @@
 ﻿using Library.ApplicationLayer.User;
+using Library.CommonLayer.Result;
 using Library.QueryLayer.DTO;
 using Library.QueryLayer.User;
 using Microsoft.AspNetCore.Http;
@@ -20,55 +21,64 @@ namespace TaavSystem.Library.Controllers
         }
 
         [HttpPost("Add_User")]
-        public void AddUser([FromBody] UserDTO user)
+        public async Task<ApiResult> AddUser([FromBody] UserDTO user)
         {
-             _command.AddUser(user);
+            await _command.AddUser(user);
+             return new ApiController().CommandResult();
         }
 
         [HttpGet("Get_All_Users")]
-        public List<UserResultDTO> GetAllUsers()
+        public async Task<ApiResult<List<UserResultDTO>>> GetAllUsers()
         {
-            return _query.GetAllUsers();
+            var result=await _query.GetAllUsers();
+            return new ApiController().QueryResult<List<UserResultDTO>>(result);
         }
 
         [HttpGet("Get_Filltered_Users")]
-        public List<UserResultDTO> GetFillterUsers([FromQuery] UserFillteringDTO user)
+        public async Task<ApiResult<List<UserResultDTO>>> GetFillterUsers([FromQuery] UserFillteringDTO user)
         {
-            return _query.GetFillteredUsers(user);
+            var result = await _query.GetFillteredUsers(user);
+            return new ApiController().QueryResult<List<UserResultDTO>>(result);
         }
 
         [HttpGet("Get_User_ById/{userId}")]
-        public UserResultDTO GetUserById([FromRoute] int userId)
+        public async Task<ApiResult<UserResultDTO>> GetUserById([FromRoute] int userId)
         {
-            return _query.GetUserById(userId);
+            var result = await _query.GetUserById(userId);
+            return new ApiController().QueryResult<UserResultDTO>(result);
         }
         [HttpGet("Get_User_ById_WithBooks/{userId}")]
-        public UserResultDTOWithBooks GetUserByIdWithBooks([FromRoute] int userId)
+        public async Task<ApiResult<UserResultDTOWithBooks>> GetUserByIdWithBooks([FromRoute] int userId)
         {
-            return _query.GetUserByIdWithBorrrowedBooks(userId);
+            var result = await _query.GetUserByIdWithBorrrowedBooks(userId);
+            return new ApiController().QueryResult<UserResultDTOWithBooks>(result);
         }
 
         [HttpPatch("Update_User/{userId}")]
-        public void UpdateUser([FromRoute] int userId,[FromBody] UpdateUserDTO updateUserDTO)
+        public async Task<ApiResult> UpdateUser([FromRoute] int userId,[FromBody] UpdateUserDTO updateUserDTO)
         {
-            _command.UpdateUser(userId,updateUserDTO);
+            await _command.UpdateUser(userId,updateUserDTO);
+            return new ApiController().CommandResult();
         }
         [HttpPatch("Borrow_User/{userId}")]
-        public void UserBorrowBook([FromRoute] int userId, [FromQuery] int bookId,[FromBody] UserBorrowBookDTO borrowBookDTO)
+        public async Task<ApiResult> UserBorrowBook([FromRoute] int userId, [FromQuery] int bookId,[FromBody] UserBorrowBookDTO borrowBookDTO)
         {
-            _command.BorrowBook(userId,bookId,borrowBookDTO);
+            await _command.BorrowBook(userId,bookId,borrowBookDTO);
+            return new ApiController().CommandResult();
         }
 
         [HttpPatch("GetBack_User/{userId}")]
-        public void UserGetBackBook([FromRoute] int userId, [FromQuery] int bookId)
+        public async Task<ApiResult> UserGetBackBook([FromRoute] int userId, [FromQuery] int bookId)
         {
-            _command.GetBackBook(userId, bookId);
+            await _command.GetBackBook(userId, bookId);
+            return new ApiController().CommandResult();
         }
 
         [HttpDelete("Delete_User/{userId}")]
-        public void DeleteUser([FromRoute] int userId)
+        public async Task<ApiResult> DeleteUser([FromRoute] int userId)
         {
-            _command.DeletUser(userId);
+            await _command.DeletUser(userId);
+            return new ApiController().CommandResult();
         }
 
     }
