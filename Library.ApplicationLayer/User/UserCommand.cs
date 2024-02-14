@@ -15,7 +15,7 @@ namespace Library.ApplicationLayer.User
     {
         void AddUser(UserDTO userDTO);
         void UpdateUser(int userId, UpdateUserDTO updateUserDTO);
-        void BorrowBook(int userId, int bookId, UserBorrowBookDTO borrowBookDTO);
+        Task BorrowBook(int userId, int bookId, UserBorrowBookDTO borrowBookDTO);
         void GetBackBook(int userId, int bookId);
         void DeletUser(int userId);
     }
@@ -48,11 +48,11 @@ namespace Library.ApplicationLayer.User
                 _userRepository.Save();
             }
         }
-        public void BorrowBook(int userId, int bookId, UserBorrowBookDTO borrowBookDTO)
+        public async Task BorrowBook(int userId, int bookId, UserBorrowBookDTO borrowBookDTO)
         {
             var user=_userRepository.GetByIdWithBorrowedBooks(userId);
             var userBorrowedbooksCount= user.BorrowBooks.Where(b => b.Status == DomainLayer.User.Enum.BorrowStatus.NotGetBacked).Count();
-            var book=_bookRepository.GetById(bookId);
+            var book=await _bookRepository.GetByIdAsync(bookId);
             var RemainingBook =book.BookCount - _userService.CalBookRentedNumbers(bookId);
             if (user != null && userBorrowedbooksCount < 4 && RemainingBook>0)
             {

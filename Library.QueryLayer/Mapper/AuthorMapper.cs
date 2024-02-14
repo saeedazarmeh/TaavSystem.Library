@@ -15,7 +15,11 @@ namespace Library.QueryLayer.Mapper
             var authorsDTO = new List<AuthorResultDTO>();
             foreach (var author in authors)
             {
-                authorsDTO.Add(new AuthorResultDTO() { Name = author.Name });
+                authorsDTO.Add(new AuthorResultDTO()
+                {
+                    AuthorId = author.Id,
+                    Name = author.Name
+                });
             }
             return authorsDTO;
         }
@@ -26,6 +30,7 @@ namespace Library.QueryLayer.Mapper
             {
                 authorsDTO.Add(new AuthorResultDTOByItsBooks()
                 {
+                    AuthorId = author.Id,
                     Name = author.Name,
                     Books = author.Books.BooksMap()
                 });
@@ -36,9 +41,10 @@ namespace Library.QueryLayer.Mapper
         public static AuthorResultDTO AuthorMap(this DomainLayer.Author.Author author)
         {
             return new AuthorResultDTO()
-                {
-                    Name = author.Name,
-                };
+            {
+                AuthorId = author.Id,
+                Name = author.Name,
+            };
         }
     }
 }

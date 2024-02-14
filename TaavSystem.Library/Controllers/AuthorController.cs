@@ -23,47 +23,42 @@ namespace TaavSystem.Library.Controllers
         }
 
         [HttpPost("Add_Author")]
-        public ApiResult AddAuthor([FromBody] AuthorDTO authorDTO)
+        public async Task<ApiResult> AddAuthor([FromBody] AuthorDTO authorDTO)
         {
-            var result=_command.AddAuthor(authorDTO);
-            HttpContext.Response.StatusCode = (int)result.Status;
-            return new ApiController().CommandResult(result);
+            await _command.AddAuthor(authorDTO);
+            return new ApiController().CommandResult();
 
         }
 
         [HttpGet("Get_All_Authors")]
-        public ApiResult<List<AuthorResultDTO>> GetAllAuthors()
+        public async Task<ApiResult<List<AuthorResultDTO>>> GetAllAuthors()
         {
-            var result=_query.GetAuthors();
-            HttpContext.Response.StatusCode = (int)result.Status;
+            var result=await _query.GetAuthors();
             return new ApiController().QueryResult<List<AuthorResultDTO>>(result);
 
         }
 
         [HttpGet("Get_All_Authors_whit _Its_Books")]
-        public ApiResult<List<AuthorResultDTOByItsBooks>> GetAllAuthorsWhithItsBooks()
+        public async Task<ApiResult<List<AuthorResultDTOByItsBooks>>> GetAllAuthorsWhithItsBooks()
         {
-            var result = _query.GetAuthorsWithBooks();
-            HttpContext.Response.StatusCode = (int)result.Status;
+            var result =await _query.GetAuthorsWithBooks();
             return new ApiController().QueryResult<List<AuthorResultDTOByItsBooks>>(result);
 
         }
         [HttpGet("Get_Author/{authorId}")]
-        public ApiResult<AuthorResultDTO> GetAuthor([FromRoute] int authorId)
+        public async Task<ApiResult<AuthorResultDTO>> GetAuthor([FromRoute] int authorId)
         {
             
-            var result = _query.GetAuthorById(authorId);
-            HttpContext.Response.StatusCode=(int)result.Status;
+            var result =await _query.GetAuthorById(authorId);
             return new ApiController().QueryResult<AuthorResultDTO>(result);
 
         }
 
         [HttpPost("Update_Author/{authorId}")]
-        public ApiResult UpdateAuthor([FromRoute] int authorId ,[FromBody] AuthorDTO authorDTO)
+        public async Task<ApiResult> UpdateAuthor([FromRoute] int authorId ,[FromBody] AuthorDTO authorDTO)
         {
-            var result = _command.UpdateAuthor(authorId, authorDTO);
-            HttpContext.Response.StatusCode = (int)result.Status;
-            return new ApiController().CommandResult(result);
+            await _command.UpdateAuthor(authorId, authorDTO);
+            return new ApiController().CommandResult();
         }
     }
 }

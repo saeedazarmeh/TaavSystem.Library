@@ -26,30 +26,24 @@ namespace Library.InfraStuctureLayer.Repository
             _dbContext.Authors.Add(author);
         }
 
-        List<Author> IAuthorRepository.GetAll()
+        public async Task<List<Author>> GetAllAsync()
         {
-            return _dbContext.Authors.ToList();
+            return await _dbContext.Authors.ToListAsync();
         }
 
-        List<Author> IAuthorRepository.GetAllByItsBooks()
+        public Task<List<Author>> GetAllByItsBooksAsync()
         {
-            return _dbContext.Authors.Include(c => c.Books).ToList();
+            return _dbContext.Authors.Include(c => c.Books).ToListAsync();
         }
 
-        Author IAuthorRepository.GetById(int authorId)
+        public async Task< Author> GetByIdAsync(int authorId)
         {
-            return _dbContext.Authors.FirstOrDefault(c => c.Id == authorId);
+            return await _dbContext.Authors.FirstOrDefaultAsync(c => c.Id == authorId);
         }
 
         public void Update(Author author)
         {
             _dbContext.Authors.Update(author);
-        }
-
-
-        public void Save()
-        {
-            _dbContext.SaveChanges();
         }
     }
 }

@@ -14,7 +14,11 @@ namespace Library.QueryLayer.Mapper
             var categoriesDTO = new List<CategoryResultDTO>();
             foreach (var category in categories)
             {
-                categoriesDTO.Add(new CategoryResultDTO() { Name = category.Name });
+                categoriesDTO.Add(new CategoryResultDTO()
+                {
+                    CategoryId = category.Id,
+                    Name = category.Name
+                });
             }
             return categoriesDTO;
         }
@@ -25,6 +29,7 @@ namespace Library.QueryLayer.Mapper
             {
                 categoriesDTO.Add(new CategoryResultDTOByItsBooks()
                 {
+                    CategoryId = category.Id,
                     Name = category.Name,
                     Books = category.Books.BooksMap()
                 });
@@ -35,9 +40,10 @@ namespace Library.QueryLayer.Mapper
         public static CategoryResultDTO CategoryMap(this DomainLayer.Category.Category category)
         {
             return new CategoryResultDTO()
-                {
-                    Name = category.Name,
-                };
+            {
+                CategoryId = category.Id,
+                Name = category.Name,
+            };
         }
     }
 }

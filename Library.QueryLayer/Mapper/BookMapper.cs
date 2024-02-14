@@ -17,6 +17,7 @@ namespace Library.QueryLayer.Mapper
             {
                 booksResultDTO.Add(new BookResultDTO()
                 {
+                    BookId = book.Id,
                     PublishYear = book.PublishYear,
                     Author = book.Author.Name,
                     Category = book.Category.Name,
@@ -29,7 +30,7 @@ namespace Library.QueryLayer.Mapper
         {
             var bookResultDTO =new BookResultDTO() 
             {
-
+                BookId=book.Id,
                 Author = book.Author.Name,
                 Category = book.Category.Name,
                 PublishYear = book.PublishYear,
@@ -41,6 +42,7 @@ namespace Library.QueryLayer.Mapper
         {
             var bookResultDTO = new BookResultDTO()
             {
+                BookId = book.Id,
                 PublishYear = book.PublishYear,
                 Name = book.Name,
             };

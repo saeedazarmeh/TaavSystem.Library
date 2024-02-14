@@ -8,7 +8,8 @@ namespace Library.QueryLayer.DTO
 {
     public class BookResultDTO
     {
-        public DateTime PublishYear { get; set; }
+        public int BookId { get; set; }
+        public string PublishYear { get; set; }
         public string Author { get; set; }
         public string Name { get; set; }
         public string Category { get; set; }

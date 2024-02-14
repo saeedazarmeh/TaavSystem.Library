@@ -9,10 +9,9 @@ namespace Library.DomainLayer.Author.Repository
     public interface IAuthorRepository
     {
         void Add(Author author);
-        List<Author> GetAll();
-        List<Author> GetAllByItsBooks();
-        Author GetById(int authorId);
+        Task<List<Author>> GetAllAsync();
+        Task<List<Author>> GetAllByItsBooksAsync();
+        Task<Author> GetByIdAsync(int authorId);
         void Update(Author author);
-        void Save();
     }
 }

@@ -11,8 +11,4 @@
     <PackageReference Include="FluentMigrator.Runner" Version="5.0.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Library.InfraStuctureLayer\Library.InfraStuctureLayer.csproj" />
-  </ItemGroup>
-
 </Project>

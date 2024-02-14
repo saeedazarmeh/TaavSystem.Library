@@ -9,12 +9,11 @@ namespace Library.DomainLayer.Book.Repository
     public interface IBookRepository
     {
         void Add(Book book);
-        List<Book> GetAll();
-        List<Book> GetByNamrOrCategory(string name,string category);
-        Book GetById(int BookId);
-        Book GetByIdWithDetails(int BookId);
+        Task<List<Book>> GetAllAsync();
+        Task<List<Book>> GetByNamrOrCategoryAsync(string name,string category);
+        Task<Book> GetByIdAsync(int BookId);
+        Task<Book> GetByIdWithDetailsAsync(int BookId);
         void Update(Book book);
         void Delete(Book book);
-        void Save();
     }
 }

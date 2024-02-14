@@ -52,14 +52,12 @@ namespace Library.CommonLayer.Exeption.ExceptionHandler
             catch (InvalidDataException exception)
             {
                 _logger.LogError(exception, exception.Message);
-                apiStatusCode = AppStatusCode.InvalidData;
                 SetErrorMessage(exception);
                 await WriteToResponseAsync();
             }
             catch (LogicExeption exception)
             {
                 _logger.LogError(exception, exception.Message);
-                apiStatusCode = AppStatusCode.LogicError;
                 SetErrorMessage(exception);
                 await WriteToResponseAsync();
             }

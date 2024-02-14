@@ -1,4 +1,6 @@
-﻿using Library.DomainLayer.Category.Repository;
+﻿using Library.CommonLayer.Exeption;
+using Library.DomainLayer.Author;
+using Library.DomainLayer.Category.Repository;
 using Library.QueryLayer.DTO;
 using Library.QueryLayer.Mapper;
 using System;
@@ -12,9 +14,9 @@ namespace Library.QueryLayer.Category
     public interface ICategoryQuery
     {
 
-        List<CategoryResultDTO> GetCategories();
-        List<CategoryResultDTOByItsBooks> GetCategoriesByBooks();
-        CategoryResultDTO GetCategory(int categoryId);
+        Task<List<CategoryResultDTO>> GetCategories();
+        Task<List<CategoryResultDTOByItsBooks>> GetCategoriesByBooks();
+        Task<CategoryResultDTO> GetCategory(int categoryId);
     }
     public class CategoryQuery:ICategoryQuery
     {
@@ -25,19 +27,23 @@ namespace Library.QueryLayer.Category
             _repository = repository;
         }
 
-        public List<CategoryResultDTO> GetCategories()
+        public async Task<List<CategoryResultDTO>> GetCategories()
         {
-            var categories=_repository.GetAll();
+            var categories=await _repository.GetAllAsync();
             return categories.CategoriesMap();
         }
-        public List<CategoryResultDTOByItsBooks> GetCategoriesByBooks()
+        public async Task<List<CategoryResultDTOByItsBooks>> GetCategoriesByBooks()
         {
-            var categories = _repository.GetAll();
+            var categories =await _repository.GetAllByItsBooksAsync();
             return categories.CategoriesMapByItsBooks();
         }
-        public CategoryResultDTO GetCategory(int categoryId)
+        public async Task<CategoryResultDTO> GetCategory(int categoryId)
         {
-            var category = _repository.GetById(categoryId);
+            var category =await _repository.GetByIdAsync(categoryId);
+            if (category == null)
+            {
+                throw new NotFoundExeption("Data not found");
+            }
             return category.CategoryMap();
         }
     }

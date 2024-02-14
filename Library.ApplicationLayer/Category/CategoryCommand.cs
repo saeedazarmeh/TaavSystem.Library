@@ -1,4 +1,8 @@
 ﻿using Library.ApplicationLayer.Book;
+using Library.CommonLayer.CommonServices;
+using Library.CommonLayer.Exeption;
+using Library.CommonLayer.Result;
+using Library.CommonLayer.UnitOfWork;
 using Library.DomainLayer.Category.Repository;
 using System;
 using System.Collections.Generic;
@@ -10,31 +14,37 @@ namespace Library.ApplicationLayer.Category
 {
     public interface ICategoryCommand
     {
-        void AddCategory(CategoryDTO categoryDTO);
-        void UpdateCategory(int categoryId, CategoryDTO categoryDTO);
+        Task AddCategory(CategoryDTO categoryDTO);
+        Task UpdateCategory(int categoryId, CategoryDTO categoryDTO);
     }
 
     public class CategoryCommand : ICategoryCommand
     {
         private readonly ICategoryRepository _repository;
+        private readonly UnitOfWork _unit;
 
-        public CategoryCommand(ICategoryRepository repository)
+        public CategoryCommand(ICategoryRepository repository,UnitOfWork unit)
         {
             _repository = repository;
+            _unit = unit;   
         }
 
-        public void AddCategory(CategoryDTO categoryDTO)
+        public async Task AddCategory(CategoryDTO categoryDTO)
         {
-            var book = new DomainLayer.Category.Category(categoryDTO.Name);
+            var book = new DomainLayer.Category.Category(categoryDTO.Name.RemoveWhithSapases());
             _repository.Add(book);
-            _repository.Save();
+            await _unit.Save();
         }
-        public void UpdateCategory(int categoryId, CategoryDTO categoryDTO)
+        public async Task UpdateCategory(int categoryId, CategoryDTO categoryDTO)
         {
-            var category = _repository.GetById(categoryId);
+            var category =await _repository.GetByIdAsync(categoryId);
+            if (category == null)
+            {
+                throw new NotFoundExeption("Data not found");
+            }
             category.Edit(categoryDTO.Name);
             _repository.Update(category);
-            _repository.Save();
+            await _unit.Save();
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Library.ApplicationLayer.Category;
+using Library.CommonLayer.Result;
 using Library.QueryLayer.Category;
 using Library.QueryLayer.DTO;
 using Microsoft.AspNetCore.Http;
@@ -20,39 +21,41 @@ namespace TaavSystem.Library.Controllers
         }
 
         [HttpPost("Add_Category")]
-        public void AddCategory([FromBody] CategoryDTO CategoryDTO)
+        public async Task<ApiResult> AddCategory([FromBody] CategoryDTO CategoryDTO)
         {
-            _command.AddCategory(CategoryDTO);
+            await _command.AddCategory(CategoryDTO);
+            return new ApiController().CommandResult();
 
         }
 
         [HttpGet("Get_All_Categorys")]
-        public List<CategoryResultDTO> GetAllCategorys()
+        public async Task<ApiResult<List<CategoryResultDTO>>> GetAllCategorys()
         {
-            var Categorys = _query.GetCategories();
-            return Categorys;
+            var result =await _query.GetCategories();
+            return new ApiController().QueryResult<List<CategoryResultDTO>>(result);
 
         }
 
         [HttpGet("Get_All_Categorys_whit _Its_Books")]
-        public List<CategoryResultDTOByItsBooks> GetAllCategorysWhithItsBooks()
+        public async Task<ApiResult<List<CategoryResultDTOByItsBooks>>> GetAllCategorysWhithItsBooks()
         {
-            var Categorys = _query.GetCategoriesByBooks();
-            return Categorys;
+            var result =await _query.GetCategoriesByBooks();
+            return new ApiController().QueryResult<List<CategoryResultDTOByItsBooks>>(result);
 
         }
         [HttpGet("Get_Category/{CategoryId}")]
-        public CategoryResultDTO GetCategory([FromRoute] int CategoryId)
+        public async Task<ApiResult<CategoryResultDTO>> GetCategory([FromRoute] int CategoryId)
         {
-            var Categorys = _query.GetCategory(CategoryId);
-            return Categorys;
+            var result =await _query.GetCategory(CategoryId);
+            return new ApiController().QueryResult<CategoryResultDTO>(result);
 
         }
 
         [HttpPost("Update_Category/{CategoryId}")]
-        public void UpdateCategory([FromRoute] int CategoryId, [FromBody] CategoryDTO CategoryDTO)
+        public async Task<ApiResult> UpdateCategory([FromRoute] int CategoryId, [FromBody] CategoryDTO CategoryDTO)
         {
-            _command.UpdateCategory(CategoryId, CategoryDTO);
+            await _command.UpdateCategory(CategoryId, CategoryDTO);
+            return new ApiController().CommandResult();
 
         }
     }

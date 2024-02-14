@@ -9,43 +9,45 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Library.CommonLayer.Result;
+using Library.CommonLayer.UnitOfWork;
+using Library.CommonLayer.CommonServices;
 
 namespace Library.ApplicationLayer.Author
 {
     public interface IAuthorCommand
     {
-        OperationResult AddAuthor(AuthorDTO authorDTO);
-        OperationResult UpdateAuthor(int authorId, AuthorDTO authorDTO);
+        Task AddAuthor(AuthorDTO authorDTO);
+        Task UpdateAuthor(int authorId, AuthorDTO authorDTO);
     }
 
     public class AuthorCommand : IAuthorCommand
     {
         private readonly IAuthorRepository _repository;
+        private readonly UnitOfWork _unit;
 
-        public AuthorCommand(IAuthorRepository repository)
+        public AuthorCommand(IAuthorRepository repository,UnitOfWork unit)
         {
             _repository = repository;
+            _unit = unit;
         }
 
-        public OperationResult AddAuthor(AuthorDTO authorDTO)
+        public async Task AddAuthor(AuthorDTO authorDTO)
         {
-            var author = new DomainLayer.Author.Author(authorDTO.Name);
+            var author = new DomainLayer.Author.Author(authorDTO.Name.RemoveWhithSapases());
             _repository.Add(author);
-            _repository.Save();
-            return OperationResult.Success("Added successfully");
+            await _unit.Save();
         }
 
-        public OperationResult UpdateAuthor(int authorId, AuthorDTO authorDTO)
+        public async Task UpdateAuthor(int authorId, AuthorDTO authorDTO)
         {
-            var author = _repository.GetById(authorId);
+            var author =await _repository.GetByIdAsync(authorId);
             if (author == null)
             {
-                return OperationResult.NotFound("Data not found");
+                throw new NotFoundExeption("Data not found");
             }
-            author.Edit(authorDTO.Name);
-            _repository.Update(author);
-            _repository.Save();
-            return OperationResult.Success("Updated successfully");
+             author.Edit(authorDTO.Name);
+             _repository.Update(author);
+            await _unit.Save();
 
         }
     }

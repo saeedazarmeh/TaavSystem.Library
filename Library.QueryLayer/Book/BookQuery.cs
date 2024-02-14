@@ -1,4 +1,5 @@
-﻿using Library.DomainLayer.Book.Repository;
+﻿using Library.CommonLayer.Exeption;
+using Library.DomainLayer.Book.Repository;
 using Library.QueryLayer.DTO;
 using Library.QueryLayer.Mapper;
 using System;
@@ -11,10 +12,10 @@ namespace Library.QueryLayer.Book
 {
     public interface IBookQuery
     {
-        List<BookResultDTO> GetAllBook();
-        BookResultDTO GetBookById(int bookId);
-        BookResultDTO GetBookByIdWithDet(int bookId);
-        List<BookResultDTO> GetFillteredBooks(BookFilltringtDTO book);
+        Task<List<BookResultDTO>> GetAllBook();
+        Task<BookResultDTO> GetBookById(int bookId);
+        Task<BookResultDTO> GetBookByIdWithDet(int bookId);
+        Task<List<BookResultDTO>> GetFillteredBooks(BookFilltringtDTO book);
     }
     public class BookQuery : IBookQuery
     {
@@ -25,26 +26,34 @@ namespace Library.QueryLayer.Book
             _repository = repository;
         }
 
-        public List<BookResultDTO> GetFillteredBooks(BookFilltringtDTO book)
+        public async Task<List<BookResultDTO>> GetFillteredBooks(BookFilltringtDTO book)
         {
-            var books=_repository.GetByNamrOrCategory(book.Name,book.Category);
+            var books=await _repository.GetByNamrOrCategoryAsync(book.Name,book.Category);
             return books.BooksMap();
         }
 
-        public List<BookResultDTO> GetAllBook()
+        public async Task<List<BookResultDTO>> GetAllBook()
         {
-            var books = _repository.GetAll();
+            var books =await _repository.GetAllAsync();
             return books.BooksMap();
         }
-        public BookResultDTO GetBookByIdWithDet(int bookId)
+        public async Task<BookResultDTO> GetBookByIdWithDet(int bookId)
         {
-            var book = _repository.GetByIdWithDetails(bookId);
+            var book =await _repository.GetByIdWithDetailsAsync(bookId);
+            if (book == null)
+            {
+                throw new NotFoundExeption("Data not found");
+            }
             return book.BookMapWithDet();
         }
 
-        public BookResultDTO GetBookById(int bookId)
+        public async Task<BookResultDTO> GetBookById(int bookId)
         {
-            var book=_repository.GetById(bookId);
+            var book=await _repository.GetByIdAsync(bookId);
+            if (book == null)
+            {
+                throw new NotFoundExeption("Data not found");
+            }
             return book.BookMap();
         }
     }

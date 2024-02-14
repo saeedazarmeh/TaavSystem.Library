@@ -1,4 +1,5 @@
-﻿using Library.CommonLayer.Result;
+﻿using Library.CommonLayer.Exeption;
+using Library.CommonLayer.Result;
 using Library.DomainLayer.Author;
 using Library.DomainLayer.Author.Repository;
 using Library.DomainLayer.Category.Repository;
@@ -14,9 +15,9 @@ namespace Library.QueryLayer.Author
 {
     public interface IAuthorQuery
     {
-        public OperationResult<List<AuthorResultDTO>> GetAuthors();
-        public OperationResult<List<AuthorResultDTOByItsBooks>> GetAuthorsWithBooks();
-        public OperationResult<AuthorResultDTO> GetAuthorById(int authorId);
+        public Task<List<AuthorResultDTO>> GetAuthors();
+        public Task<List<AuthorResultDTOByItsBooks>> GetAuthorsWithBooks();
+        public Task<AuthorResultDTO> GetAuthorById(int authorId);
     }
     public class AuthorQuery:IAuthorQuery
     {
@@ -27,28 +28,24 @@ namespace Library.QueryLayer.Author
             _repository = repository;
         }
 
-        public OperationResult<List<AuthorResultDTO>> GetAuthors()
+        public async Task<List<AuthorResultDTO>> GetAuthors()
         {
-            var authors = _repository.GetAll();
-            return OperationResult<List<AuthorResultDTO>>
-                .Success(authors.AuthorsMap(),"Data uploded successfully");
+            var authors =await _repository.GetAllAsync();
+            return authors.AuthorsMap();
         }
-        public OperationResult<List<AuthorResultDTOByItsBooks>> GetAuthorsWithBooks()
+        public async Task<List<AuthorResultDTOByItsBooks>> GetAuthorsWithBooks()
         {
-            var authors = _repository.GetAll();
-            return OperationResult<List<AuthorResultDTOByItsBooks>>
-                .Success(authors.AuthorsMapByItsBooks(), "Data uploded successfully");
-
+            var authors = await _repository.GetAllByItsBooksAsync();
+            return authors.AuthorsMapByItsBooks();
         }
-        public OperationResult<AuthorResultDTO> GetAuthorById(int authorId)
+        public async Task<AuthorResultDTO> GetAuthorById(int authorId)
         {
-            var author = _repository.GetById(authorId);
+            var author = await _repository.GetByIdAsync(authorId);
             if(author == null)
             {
-                return OperationResult<AuthorResultDTO>.NotFound();
+                throw new NotFoundExeption("Data not found");
             }
-            return OperationResult<AuthorResultDTO>
-              .Success(author.AuthorMap(), "Data uploded successfully");
+            return author.AuthorMap();
         }
     }
 }

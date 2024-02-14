@@ -1,15 +1,11 @@
-using Library.InfraStuctureLayer.Persistent.EF;
-using Library.InfraStuctureLayer.Repository;
-using Microsoft.AspNetCore.Identity;
+
+
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration.UserSecrets;
-using Microsoft.Extensions.Options;
 using Library.DomainLayer.User.Repository;
 using Library.DomainLayer.Book.Repository;
 using Library.CommonLayer.Exeption;
 using Library.ApplicationLayer.Book;
 using Library.ApplicationLayer.User;
-using TaavSystem.Library.Controllers;
 using Library.QueryLayer.Book;
 using Library.QueryLayer.User;
 using Library.DomainLayer.Category.Repository;
@@ -19,8 +15,13 @@ using Library.ApplicationLayer.Author;
 using Library.QueryLayer.Category;
 using Library.QueryLayer.Author;
 using Library.DomainLayer.User.Service;
-using Library.InfraStuctureLayer.Service;
 using Library.CommonLayer.Exeption.ExceptionHandler;
+using Library.CommonLayer.UnitOfWork;
+using Library.InfraStuctureLayer.UnitOfWork;
+using Library.InfraStuctureLayer.Repository;
+using Library.Persistant.Repository;
+using Library.InfraStuctureLayer.Service;
+using Library.Persistant.Persistent.EF;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -45,6 +46,7 @@ catch (Exception ex)
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddScoped<UnitOfWork, EfUnitOfWork>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IBookRepository, BookRepository>();
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();

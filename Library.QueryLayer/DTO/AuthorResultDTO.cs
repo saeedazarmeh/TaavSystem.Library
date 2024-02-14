@@ -8,10 +8,12 @@ namespace Library.QueryLayer.DTO
 {
     public class AuthorResultDTO
     {
+        public int AuthorId { get; set; }
         public string Name { get; set; }
     }
     public class AuthorResultDTOByItsBooks
     {
+        public int AuthorId { get; set; }
         public string Name { get; set; }
         public List<BookResultDTO> Books { get; set; }
     }

@@ -8,91 +8,130 @@ using System.Threading.Tasks;
 using Library.DomainLayer.Category.Repository;
 using Library.DomainLayer.Author.Repository;
 using Library.DomainLayer.Author;
+using Library.CommonLayer.UnitOfWork;
+using Library.CommonLayer.Exeption;
+using Library.CommonLayer.CommonServices;
 
 namespace Library.ApplicationLayer.Book
 {
     public interface IBookCommand
     {
-        public void AddBook(BookDTO bookDTO, int categoryId, int authorId);
-        public void UpdateBook(int bookId, UpdateBookDTO updatebookDTO);
-        public void UpdateBookCategory(int bookId, int categoryId);
-        public void UpdateBookCount(int bookId, int addedBook);
-        public void UpdateBookAuthor(int bookId, int authorId);
-        public void DeleteBook(int bookId);
+        public Task AddBook(BookDTO bookDTO, int categoryId, int authorId);
+        public Task UpdateBook(int bookId, UpdateBookDTO updatebookDTO);
+        public Task UpdateBookCategory(int bookId, int categoryId);
+        public Task UpdateBookCount(int bookId, int addedBook);
+        public Task UpdateBookAuthor(int bookId, int authorId);
+        public Task DeleteBook(int bookId);
     }
 
     public class BookCommand : IBookCommand
     {
-        private readonly IBookRepository _booRepository;
+        private readonly IBookRepository _bookRepository;
         private readonly ICategoryRepository _categoryRepository;
         private readonly IAuthorRepository _authorRepository;
-        public BookCommand(IBookRepository repository, ICategoryRepository categoryRepository, IAuthorRepository authorRepository)
+        private readonly UnitOfWork _unit;
+        public BookCommand(IBookRepository repository, ICategoryRepository categoryRepository,
+            IAuthorRepository authorRepository,UnitOfWork unit)
         {
-            _booRepository = repository;
+            _bookRepository = repository;
+            _unit = unit;   
             _categoryRepository=categoryRepository;
             _authorRepository=authorRepository; 
         }
-        public void AddBook(BookDTO bookDTO , int categoryId, int authorId )
+        public async Task AddBook(BookDTO bookDTO , int categoryId, int authorId )
         {
-            var book = new DomainLayer.Book.Book(bookDTO.PublishYear,  bookDTO.Name ,bookDTO.bookCount);
-            var category=_categoryRepository.GetById(categoryId);
-            var author=_authorRepository.GetById(authorId);
-            _booRepository.Add(book);
-            book.AddOrEditCategory(category);
-            book.AddOrEditAuthor(author);
-            _booRepository.Save();
-        }
-        public void UpdateBook(int bookId, UpdateBookDTO updatebookDTO)
-        {
-            var book = _booRepository.GetById(bookId);
-           if(book != null)
+            var book = new DomainLayer.Book.Book(bookDTO.PublishYear,  bookDTO.Name.RemoveWhithSapases(), bookDTO.bookCount);
+            var category=await _categoryRepository.GetByIdAsync(categoryId);
+            var author=await _authorRepository.GetByIdAsync(authorId);
+            if (category == null || author == null)
             {
-                book.Edit(updatebookDTO.PublishYear,  updatebookDTO.Name);
-                _booRepository.Update(book);
-                _booRepository.Save();
+                throw new NotFoundExeption("Data not found");
             }
-        }
-        public void UpdateBookCategory(int bookId, int categoryId)
-        {
-            var book = _booRepository.GetById(bookId);
-            if (book != null)
+            await _unit.Begin();
+            try
             {
-                var category=_categoryRepository.GetById(categoryId);
+                _bookRepository.Add(book);
                 book.AddOrEditCategory(category);
-                _booRepository.Update(book);
-                _booRepository.Save();
-            }
-        }
-        public void UpdateBookAuthor(int bookId, int authorId)
-        {
-            var book = _booRepository.GetById(bookId);
-            if (book != null)
-            {
-                var author = _authorRepository.GetById(authorId);
                 book.AddOrEditAuthor(author);
-                _booRepository.Update(book);
-                _booRepository.Save();
+                await _unit.Save();
+                await _unit.Commit();
             }
-        }
-        public void DeleteBook(int bookId)
-        {
-            var book =_booRepository.GetById(bookId);
-            if (book != null)
+            catch(Exception ex)
             {
-                _booRepository.Delete(book);
-                _booRepository.Save();
+                _unit.RoleBack();
             }
+      
+        }
+        public async Task UpdateBook(int bookId, UpdateBookDTO updatebookDTO)
+        {
+            var book =await _bookRepository.GetByIdAsync(bookId);
+           if(book == null)
+            {
+                throw new NotFoundExeption("Data not found");
+            }
+            book.Edit(updatebookDTO.PublishYear, updatebookDTO.Name.RemoveWhithSapases());
+            _bookRepository.Update(book);
+            await _unit.Save();
+        }
+        public async Task UpdateBookCategory(int bookId, int categoryId)
+        {
+            var book =await _bookRepository.GetByIdAsync(bookId);
+            if (book == null)
+            {
+                throw new NotFoundExeption("Data not found");
+            }
+            var category =await _categoryRepository.GetByIdAsync(categoryId);
+            if (category == null)
+            {
+                throw new NotFoundExeption("Data not found");
+            }
+            book.AddOrEditCategory(category);
+            _bookRepository.Update(book);
+            await _unit.Save();
+        }
+        public async Task UpdateBookAuthor(int bookId, int authorId)
+        {
+            var book =await _bookRepository.GetByIdAsync(bookId);
+            if (book == null)
+            {
+                throw new NotFoundExeption("Data not found");
+            }
+            var author =await _authorRepository.GetByIdAsync(authorId);
+            if (author == null)
+            {
+                throw new NotFoundExeption("Data not found");
+            }
+            book.AddOrEditAuthor(author);
+                _bookRepository.Update(book);
+                await _unit.Save();
+            
+        }
+        public async Task DeleteBook(int bookId)
+        {
+            var book =await _bookRepository.GetByIdAsync(bookId);
+            if (book == null)
+            {
+                throw new NotFoundExeption("Data not found");
+            }
+            _bookRepository.Delete(book);
+                await _unit.Save();
         }
 
-        public void UpdateBookCount(int bookId, int addedBook)
+        public async Task UpdateBookCount(int bookId, int newBookcount)
         {
-            var book = _booRepository.GetById(bookId);
-            if (book != null)
+            var book =await _bookRepository.GetByIdAsync(bookId);
+            if (book == null)
             {
-                book.AddBookCount(addedBook);
-                _booRepository.Update(book);
-                _booRepository.Save();
+                throw new NotFoundExeption("Data not found");
             }
+            var newcount = book.BookCount + newBookcount;
+            if (newcount < 0)
+            {
+                throw new InvalidDataException("total count cant be less than zero");
+            }
+            book.AddOrDecreaseBookCount(newcount);
+                _bookRepository.Update(book);
+                await _unit.Save();
         }
     }
 }

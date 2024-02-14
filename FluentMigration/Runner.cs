@@ -1,6 +1,5 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using FluentMigrator.Runner;
-using Library.InfraStuctureLayer.Persistent.EF;
 using Microsoft.Extensions.DependencyInjection;
 
 //Console.WriteLine("Hello, World!");

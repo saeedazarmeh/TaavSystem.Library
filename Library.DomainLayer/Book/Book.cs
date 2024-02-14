@@ -11,7 +11,7 @@ namespace Library.DomainLayer.Book
 {
     public class Book
     {
-        public Book(DateTime publishYear ,  string name,int bookCount)
+        public Book(string publishYear ,  string name,int bookCount)
         {
             PublishYear = publishYear;
             Name = name;
@@ -21,7 +21,7 @@ namespace Library.DomainLayer.Book
         public int Id { get;private set; }
         public string Name { get; private set; }
         public int BookCount { get; private set; }
-        public DateTime PublishYear { get;private set; }
+        public string PublishYear { get;private set; }
         [ForeignKey("Author")]
         public int AuthorId { get;private set; }
     
@@ -31,7 +31,7 @@ namespace Library.DomainLayer.Book
       
         public virtual Category.Category Category { get;private set; }
         public List<BorrowBook> BorrowBooks { get;private set; }
-        public void Edit(DateTime publishYear, string name)
+        public void Edit(string publishYear, string name)
         {
             if (publishYear != null)
             {
@@ -42,9 +42,9 @@ namespace Library.DomainLayer.Book
                 Name = name;
             }
         }
-        public void AddBookCount(int addedCount)
+        public void AddOrDecreaseBookCount(int newCount)
         {
-            BookCount=BookCount+addedCount;
+            BookCount = newCount;
         }
         public void AddOrEditCategory(Category.Category category)
         {

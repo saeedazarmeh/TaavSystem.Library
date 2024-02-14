@@ -1,7 +1,9 @@
 ﻿using Library.ApplicationLayer.Book;
+using Library.CommonLayer.Result;
 using Library.QueryLayer.Book;
 using Library.QueryLayer.DTO;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 
 namespace TaavSystem.Library.Controllers
 {
@@ -19,51 +21,61 @@ namespace TaavSystem.Library.Controllers
         }
 
         [HttpPost("Define_Book")]
-        public void DefineBook([FromQuery]int categoryId,int authorId, [FromBody] BookDTO Book)
+        public async Task<ApiResult> DefineBook([FromQuery]int categoryId,int authorId, [FromBody] BookDTO Book)
         {
-            _command.AddBook(Book,categoryId,authorId);
+            await _command.AddBook(Book,categoryId,authorId);
+            return new ApiController().CommandResult();
         }
 
         [HttpGet("Get_All_Books")]
-        public List<BookResultDTO> GetAllBooks()
+        public async Task<ApiResult<List<BookResultDTO>>> GetAllBooks()
         {
-            return _query.GetAllBook();
+            var result = await _query.GetAllBook();
+            return new ApiController().QueryResult< List < BookResultDTO >>(result);
+
         }
 
         [HttpGet("Get_Filltered_Books")]
-        public List<BookResultDTO> GetFillterBooks( [FromQuery] BookFilltringtDTO Book)
+        public async Task<ApiResult<List<BookResultDTO>>> GetFillterBooks( [FromQuery] BookFilltringtDTO Book)
         {
-            return _query.GetFillteredBooks(Book);
+            var result=await _query.GetFillteredBooks(Book);
+            return new ApiController().QueryResult<List<BookResultDTO>>(result);
+
         }
 
         [HttpGet("Get_Book_ById/{bookId}")]
-        public BookResultDTO GetBookById([FromRoute] int bookId)
+        public async Task<ApiResult<BookResultDTO>> GetBookById([FromRoute] int bookId)
         {
-            return _query.GetBookById(bookId);
+            var result = await _query.GetBookById(bookId);
+            return new ApiController().QueryResult<BookResultDTO>(result);
         }
 
         [HttpGet("Get_Book_ById_WithDet/{bookId}")]
-        public BookResultDTO GetBookByIdWithCategoryAndAuthor([FromRoute] int bookId)
+        public async Task<ApiResult<BookResultDTO>> GetBookByIdWithCategoryAndAuthor([FromRoute] int bookId)
         {
-            return _query.GetBookByIdWithDet(bookId);
+            var result =await _query.GetBookByIdWithDet(bookId);
+            return new ApiController().QueryResult<BookResultDTO>(result);
         }
 
         [HttpPatch("Update_Book/{bookId}")]
-        public void UpdateBook([FromRoute] int bookId, [FromBody] UpdateBookDTO updateBookDTO)
+        public async Task<ApiResult> UpdateBook([FromRoute] int bookId, [FromBody] UpdateBookDTO updateBookDTO)
         {
-            _command.UpdateBook(bookId, updateBookDTO);
+            await _command.UpdateBook(bookId, updateBookDTO);
+            return new ApiController().CommandResult();
         }
 
-        [HttpPatch("Add_Book_Numbers/{bookId}")]
-        public void AddBookNumber([FromRoute] int bookId, [FromBody] int addedNumbers)
+        [HttpPatch("Add_Or_Decrease_Book_Numbers/{bookId}")]
+        public async Task<ApiResult> AddOrDecreaseBookNumbers([FromRoute] int bookId, [FromQuery] int addedOrDecreaseNumbers)
         {
-            _command.UpdateBookCount(bookId,addedNumbers);
+            await _command.UpdateBookCount(bookId, addedOrDecreaseNumbers);
+            return new ApiController().CommandResult();
         }
 
         [HttpDelete("Delete_Book/{bookId}")]
-        public void DeleteBook([FromRoute] int bookId)
+        public async Task<ApiResult> DeleteBook([FromRoute] int bookId)
         {
-            _command.DeleteBook(bookId);
+            await _command.DeleteBook(bookId);
+            return new ApiController().CommandResult();
         }
     }
 }

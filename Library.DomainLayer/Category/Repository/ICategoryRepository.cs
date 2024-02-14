@@ -9,10 +9,9 @@ namespace Library.DomainLayer.Category.Repository
     public interface ICategoryRepository
     {
         void Add(Category category);
-        List<Category> GetAll();
-        List<Category> GetAllByItsBooks();
-        Category GetById(int categoryId);
+        Task<List<Category>> GetAllAsync();
+        Task<List<Category>> GetAllByItsBooksAsync();
+        Task<Category> GetByIdAsync(int categoryId);
         void Update(Category category);
-        void Save();
     }
 }
