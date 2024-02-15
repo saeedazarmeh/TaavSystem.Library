@@ -36,7 +36,7 @@ namespace Library.Persistant.Persistent.EF.Categories
 
         public async Task<List<Category>> GetAllByItsBooksAsync()
         {
-            return await _dbContext.Categories.Include(c => c.Books).ToListAsync();
+            return await _dbContext.Categories.Include(c => c.Books).ThenInclude(b =>b.Author).ToListAsync();
         }
 
         public void Update(Category category)

@@ -17,6 +17,9 @@ using Library.Services.User.Contract.Repository;
 using Library.Services.Books.Contract.Repository;
 using Library.Persistant.UnitOfWork;
 using TaavSystem.Library.Utilities.ExceptionHandler;
+using Library.Services.Authors;
+using Library.Services.Books;
+using Library.Services.Categories;
 
 var builder = WebApplication.CreateBuilder(args);
 

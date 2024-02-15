@@ -33,7 +33,7 @@ namespace Library.Persistant.Persistent.EF.Authors
 
         public Task<List<Author>> GetAllByItsBooksAsync()
         {
-            return _dbContext.Authors.Include(c => c.Books).ToListAsync();
+            return _dbContext.Authors.Include(c => c.Books).ThenInclude(b=>b.Category).ToListAsync();
         }
 
         public async Task<Author> GetByIdAsync(int authorId)
